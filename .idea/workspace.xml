@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="714def73-347c-41a4-854f-16a7dc937fb3" name="Default Changelist" comment="更改nacos地址">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="spring-beans.schema" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/security/Policy.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/LinkedList.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Class.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/AbstractList.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/reflect/Constructor.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/jre/lib/rt.jar!/sun/security/provider/PolicyFile.class" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/security/ProtectionDomain.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/AbstractCollection.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/ArrayList.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/security/CodeSource.java" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="F:\resource\apache-maven-3.3.9-bin\maven_repository" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../resource/apache-maven-3.3.9-bin/apache-maven-3.3.9" />
+        <option name="userSettingsFile" value="F:\resource\apache-maven-3.3.9-bin\apache-maven-3.3.9\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="25vNlFBI1EzlKyunM4GN0BFk1EO" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/oj-judge/src/main/resources/static" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.1483932" />
+    <property name="project.structure.side.proportion" value="0.29915434" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.splitter.proportion" value="0.25543994" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="enabled" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.cheerful.oj.judge.exception" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\oj_system\oj-judge\src\main\resources\static" />
+      <recent name="F:\oj_system" />
+      <recent name="F:\oj_system\oj-platform\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.cheerful.oj.common.constant" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="openRunningConfigInTab" value="true" />
+  </component>
+  <component name="RunManager" selected="Spring Boot.OjPlatformApplication">
+    <configuration name="GCRootDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cheerful.oj.platform.util.GCRootDemo" />
+      <module name="oj-platform" />
+      <option name="VM_PARAMETERS" value="-XX:+PrintGCDetails -Xss5M" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cheerful.oj.platform.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cheerful.oj.geteway.test.Main" />
+      <module name="oj-gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cheerful.oj.geteway.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.cheerful.oj.geteway.test.TestController" />
+      <module name="oj-gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cheerful.oj.geteway.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OjGatewayApplicationTests.contextLoads" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oj-gateway" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cheerful.oj.geteway.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cheerful.oj.geteway" />
+      <option name="MAIN_CLASS_NAME" value="com.cheerful.oj.geteway.OjGatewayApplicationTests" />
+      <option name="METHOD_NAME" value="contextLoads" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OjPlatformApplicationTests.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="oj-platform" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.cheerful.oj.platform.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.cheerful.oj.platform" />
+      <option name="MAIN_CLASS_NAME" value="com.cheerful.oj.platform.OjPlatformApplicationTests" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OjGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="oj-gateway" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.geteway.OjGatewayApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OjJudgeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="oj-judge" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.judge.OjJudgeApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OjPlatformApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="oj-platform" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.platform.OjPlatformApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OjQuestionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="oj-question" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.question.OjQuestionApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RenrenApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="renren-fast" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="io.renren.RenrenApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.TestController" />
+      <item itemvalue="Application.GCRootDemo" />
+      <item itemvalue="JUnit.OjPlatformApplicationTests.test" />
+      <item itemvalue="JUnit.OjGatewayApplicationTests.contextLoads" />
+      <item itemvalue="Spring Boot.OjPlatformApplication" />
+      <item itemvalue="Spring Boot.RenrenApplication" />
+      <item itemvalue="Spring Boot.OjGatewayApplication" />
+      <item itemvalue="Spring Boot.OjQuestionApplication" />
+      <item itemvalue="Spring Boot.OjJudgeApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GCRootDemo" />
+        <item itemvalue="Application.TestController" />
+        <item itemvalue="JUnit.OjGatewayApplicationTests.contextLoads" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.OjPlatformApplicationTests.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpringBootOptions">
+    <option name="showAdditionalConfigNotification" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="714def73-347c-41a4-854f-16a7dc937fb3" name="Default Changelist" comment="" />
+      <created>1646403750100</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1646403750100</updated>
+      <workItem from="1646403751886" duration="1417000" />
+      <workItem from="1646477212755" duration="454000" />
+      <workItem from="1646553510362" duration="3251000" />
+      <workItem from="1646641513496" duration="5342000" />
+      <workItem from="1646731775028" duration="2118000" />
+      <workItem from="1646893041273" duration="9089000" />
+      <workItem from="1646975494342" duration="7459000" />
+      <workItem from="1646983326450" duration="1055000" />
+      <workItem from="1646985608688" duration="2369000" />
+      <workItem from="1647057834921" duration="5038000" />
+      <workItem from="1647072848301" duration="3170000" />
+      <workItem from="1647161434087" duration="416000" />
+      <workItem from="1647247881073" duration="4716000" />
+      <workItem from="1647349158707" duration="4917000" />
+      <workItem from="1647412360105" duration="2798000" />
+      <workItem from="1647416551564" duration="1731000" />
+      <workItem from="1647431351376" duration="2068000" />
+      <workItem from="1647441030344" duration="607000" />
+      <workItem from="1647500490623" duration="37000" />
+      <workItem from="1647788200320" duration="3068000" />
+      <workItem from="1647791389544" duration="736000" />
+      <workItem from="1647792167935" duration="2854000" />
+      <workItem from="1647933972438" duration="2041000" />
+      <workItem from="1647948895403" duration="5464000" />
+      <workItem from="1648006892059" duration="12204000" />
+      <workItem from="1648273664699" duration="10486000" />
+      <workItem from="1648349954978" duration="631000" />
+      <workItem from="1648361496628" duration="10934000" />
+      <workItem from="1648395071330" duration="431000" />
+      <workItem from="1648437417733" duration="3173000" />
+      <workItem from="1648441976048" duration="623000" />
+      <workItem from="1648615803778" duration="2953000" />
+      <workItem from="1648647173069" duration="2906000" />
+      <workItem from="1648693463552" duration="4471000" />
+      <workItem from="1648731827893" duration="3867000" />
+      <workItem from="1648993898979" duration="1175000" />
+      <workItem from="1649141118243" duration="1521000" />
+      <workItem from="1649156235196" duration="7586000" />
+      <workItem from="1649209576904" duration="4780000" />
+      <workItem from="1649313814997" duration="14197000" />
+      <workItem from="1649511933000" duration="6711000" />
+      <workItem from="1649580044203" duration="1339000" />
+      <workItem from="1649581577632" duration="923000" />
+      <workItem from="1649657077936" duration="8227000" />
+      <workItem from="1649824100014" duration="1925000" />
+      <workItem from="1650182944049" duration="1716000" />
+      <workItem from="1650259332992" duration="2255000" />
+      <workItem from="1650261908272" duration="43000" />
+      <workItem from="1650263842177" duration="18000" />
+      <workItem from="1650365517762" duration="159000" />
+      <workItem from="1650372949238" duration="1212000" />
+    </task>
+    <task id="LOCAL-00001" summary="更改nacos地址">
+      <created>1647349538515</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647349538515</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+      </list>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="更改nacos地址" />
+    <option name="LAST_COMMIT_MESSAGE" value="更改nacos地址" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="2" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/oj-gateway/src/main/java/com/cheerful/oj/geteway/test/TestController.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.15.RELEASE/spring-context-5.2.15.RELEASE-sources.jar!/org/springframework/context/support/ClassPathXmlApplicationContext.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.15.RELEASE/spring-context-5.2.15.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java</url>
+          <line>550</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.2.15.RELEASE/spring-context-5.2.15.RELEASE-sources.jar!/org/springframework/context/support/AbstractApplicationContext.java</url>
+          <line>878</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultListableBeanFactory.java</url>
+          <line>896</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractBeanFactory.java</url>
+          <line>249</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE-sources.jar!/org/springframework/beans/factory/support/DefaultSingletonBeanRegistry.java</url>
+          <line>181</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.2.15.RELEASE/spring-beans-5.2.15.RELEASE-sources.jar!/org/springframework/beans/factory/support/AbstractBeanFactory.java</url>
+          <line>321</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
