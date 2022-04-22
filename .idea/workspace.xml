@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="714def73-347c-41a4-854f-16a7dc937fb3" name="Default Changelist" comment="更改nacos地址">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/exception/AssertException.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/exception/AssertException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/exception/ServerExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/exception/ServerExceptionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/pojo/vo/JudgeTaskVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/pojo/vo/JudgeTaskVO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +314,8 @@
       <workItem from="1650261908272" duration="43000" />
       <workItem from="1650263842177" duration="18000" />
       <workItem from="1650365517762" duration="159000" />
-      <workItem from="1650372949238" duration="1212000" />
+      <workItem from="1650372949238" duration="1361000" />
+      <workItem from="1650618217264" duration="676000" />
     </task>
     <task id="LOCAL-00001" summary="更改nacos地址">
       <created>1647349538515</created>

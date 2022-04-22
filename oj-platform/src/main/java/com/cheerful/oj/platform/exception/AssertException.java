@@ -34,7 +34,10 @@ public class AssertException {
             //记录错误信息
             log.error(msg);
             //抛出异常
-            throw ParamException.builder().code(code).msg(msg).build();
+            throw ParamException.builder()
+                    .code(code)
+                    .msg(msg)
+                    .build();
         }
     }
 
@@ -47,7 +50,10 @@ public class AssertException {
             //记录错误信息
             log.error(HttpStatus.INTERNAL_SERVER_ERROR.name());
             //抛出异常
-            throw ParamException.builder().code(HttpStatus.INTERNAL_SERVER_ERROR.value()).msg(HttpStatus.INTERNAL_SERVER_ERROR.name()).build();
+            throw ParamException.builder()
+                    .code(HttpStatus.INTERNAL_SERVER_ERROR.value())
+                    .msg(HttpStatus.INTERNAL_SERVER_ERROR.name())
+                    .build();
         }
     }
 }

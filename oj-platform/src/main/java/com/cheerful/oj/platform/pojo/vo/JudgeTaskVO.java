@@ -1,5 +1,6 @@
 package com.cheerful.oj.platform.pojo.vo;
 
+import com.cheerful.oj.platform.exception.Verify;
 import lombok.Data;
 
 /**
@@ -11,8 +12,11 @@ import lombok.Data;
 @Data
 public class JudgeTaskVO {
     private Long userId;
+    @Verify(name = "题目id")
     private Long qid;
+    @Verify(name = "语言模板")
     private Integer orderType;
+    @Verify(name = "源代码")
     private String source;
     private String nickname;
 }
