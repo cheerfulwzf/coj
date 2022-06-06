@@ -35,7 +35,7 @@ public abstract class JudgeHandler {
      */
     public JudgeResultDTO judge(JudgeTaskDTO task){
         JudgeResultDTO result=new JudgeResultDTO();
-        // TODO: 2022/3/10 检查判题任务类的数据完整
+        // TODO: 2022/3/10 检查判题任务类的数据完整--->消息的生产方已解决
 
         //创建工作目录 /tmp/OnlineJudgeWorkspace/time
         File path = new File(judgePath + File.separator + System.currentTimeMillis());

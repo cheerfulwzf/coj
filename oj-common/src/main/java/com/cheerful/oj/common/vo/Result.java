@@ -24,12 +24,20 @@ public class Result<T> {
         return new Result<>(0,"success",null);
     }
 
+    public static <T> Result<T> success(Integer status,String msg){
+        return new Result<>(status,msg,null);
+    }
+
     public static <T> Result<T> success(T data){
         return new Result<>(0,"success",data);
     }
 
     public static <T> Result<T> error(){
         return new Result<>(-1,"error",null);
+    }
+
+    public static <T> Result<T> error(Integer status,String msg){
+        return new Result<>(status,msg,null);
     }
 
     public static <T> Result<T> error(T data){

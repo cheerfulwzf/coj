@@ -21,7 +21,6 @@ public class JSJudgeHandler extends JudgeHandler {
     @Value("${judge.js.runCmd}")
     private String runWord;
 
-
     @Override
     protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
         File src = new File(path, "main.js");

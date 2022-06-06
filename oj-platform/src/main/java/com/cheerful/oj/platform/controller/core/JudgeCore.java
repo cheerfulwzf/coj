@@ -1,5 +1,7 @@
 package com.cheerful.oj.platform.controller.core;
 
+import com.cheerful.oj.common.constant.CachePrefixConstant;
+import com.cheerful.oj.common.constant.HttpStatusConstant;
 import com.cheerful.oj.common.constant.JudgeStatusConstant;
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.common.vo.Result;
@@ -10,14 +12,22 @@ import com.cheerful.oj.platform.interceptor.LoginUserInterceptor;
 import com.cheerful.oj.platform.pojo.dto.Question;
 import com.cheerful.oj.platform.pojo.vo.JudgeTaskVO;
 import com.cheerful.oj.platform.service.SubmissionService;
+import com.cheerful.oj.platform.util.UuidUtil;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.redis.core.RedisOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Set;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
@@ -41,37 +51,54 @@ public class JudgeCore {
     @Autowired
     ThreadPoolExecutor executor;
 
+    @Autowired
+    StringRedisTemplate redisTemplate;
+
     /**
-     * 对前端暴露接口，增加判题任务到消息队列
+     * 对前端暴露接口，增加判题任务到消息队列，保证接口幂等
+     *
      * <h1>发送消息，保存判题记录</h1>
      * @param task 判题任务
-     * @return
+     *
      */
     @PostMapping("add/judge")
     public Result<Submission> judge(@RequestBody JudgeTaskVO task){
+        User user = LoginUserInterceptor.loginUser.get();
+        String key=CachePrefixConstant.TOKEN_PREFIX+user.getId();
+        //如果token不存在则直接返回
+        if (redisTemplate.opsForValue().get(key)==null){
+            return Result.success(HttpStatusConstant.TOKEN_NOT_FOUND,"请勿重复提交");
+        }
+        String script="if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
+        Long i = redisTemplate.execute(
+                new DefaultRedisScript<>(script, Long.class),
+                Collections.singletonList(key),
+                task.getToken()
+        );
+        if (i!=1L){
+            return Result.success(HttpStatusConstant.TOKEN_NOT_FOUND,"请勿重复提交");
+        }
         Long qid = task.getQid();
-        JudgeTaskDTO taskDTO = new JudgeTaskDTO();
         Result<Question> result = questionFeignService.selectOne(qid);
         if (result.getData()==null){
-            return Result.error();
+            return Result.error(HttpStatusConstant.QUESTION_NOT_FOUND,"题目id不存在");
         }
-
+        JudgeTaskDTO taskDTO = new JudgeTaskDTO();
         //调用远程接口封装判题任务信息
         Question question = result.getData();
         buildTaskDTO(task, qid, taskDTO, question);
 
         //提交判题记录
         Submission submission = new Submission();
-//        User user = LoginUserInterceptor.loginUser.get();
-//        submission.setUserId(user.getId());
-//        submission.setNickname(user.getNickname());
+        submission.setQuestionId(task.getQid());
+//        submission.setUserId(task.getUserId());
+//        submission.setNickname(task.getNickname());
+        submission.setUserId(user.getId());
+        submission.setNickname(user.getNickname());
         submission.setLanguage(task.getOrderType());
         submission.setSource(task.getSource());
-        submission.setUserId(task.getUserId());
-        submission.setQuestionId(task.getQid());
         submission.setResultCode(JudgeStatusConstant.BLOCK.getCode());
         submission.setQuestionTitle(question.getTitle());
-        submission.setNickname(task.getNickname());
         submissionService.save(submission);
 
         taskDTO.setSubmissionId(submission.getId());
@@ -91,5 +118,17 @@ public class JudgeCore {
         taskDTO.setMemoryLimit(question.getMemoryLimit());
         taskDTO.setQid(qid);
         taskDTO.setOrderType(task.getOrderType());
+    }
+
+    /**
+     * 保证接口的幂等性
+     * @return
+     */
+    @GetMapping("/getToken")
+    private String getToken(){
+        User user = LoginUserInterceptor.loginUser.get();
+        String token = UuidUtil.getId();
+        redisTemplate.opsForValue().set(CachePrefixConstant.TOKEN_PREFIX+user.getId(),token);
+        return token;
     }
 }

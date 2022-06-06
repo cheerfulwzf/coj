@@ -5,9 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="714def73-347c-41a4-854f-16a7dc937fb3" name="Default Changelist" comment="更改nacos地址">
+      <change afterPath="$PROJECT_DIR$/oj-common/src/main/java/com/cheerful/oj/common/constant/CachePrefixConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-common/src/main/java/com/cheerful/oj/common/constant/HttpStatusConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/util/UuidUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/17844c9d-5dff-4647-8e82-c580603e29cb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/17844c9d-5dff-4647-8e82-c580603e29cb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/67e9589b-02a4-4aff-b247-bb5fcdb1d4bf.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/67e9589b-02a4-4aff-b247-bb5fcdb1d4bf.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/a4e6146f-a99d-452c-8505-245973dc9b29.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/a4e6146f-a99d-452c-8505-245973dc9b29.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/exception/AssertException.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/exception/AssertException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/exception/ServerExceptionResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/exception/ServerExceptionResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oj-common/src/main/java/com/cheerful/oj/common/vo/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-common/src/main/java/com/cheerful/oj/common/vo/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oj-judge/src/main/java/com/cheerful/oj/judge/factory/base/JudgeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-judge/src/main/java/com/cheerful/oj/judge/factory/base/JudgeHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oj-judge/src/main/java/com/cheerful/oj/judge/factory/impl/JSJudgeHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-judge/src/main/java/com/cheerful/oj/judge/factory/impl/JSJudgeHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oj-judge/src/main/java/com/cheerful/oj/judge/util/ExecutorUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-judge/src/main/java/com/cheerful/oj/judge/util/ExecutorUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/controller/core/JudgeCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/controller/core/JudgeCore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/pojo/vo/JudgeTaskVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/oj-platform/src/main/java/com/cheerful/oj/platform/pojo/vo/JudgeTaskVO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,24 +48,15 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/security/Policy.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/LinkedList.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/Class.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/AbstractList.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/lang/reflect/Constructor.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/jre/lib/rt.jar!/sun/security/provider/PolicyFile.class" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/security/ProtectionDomain.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/AbstractCollection.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/util/ArrayList.java" root0="FORCE_HIGHLIGHTING" />
-    <setting file="jar://C:/Program Files/Java/jdk1.8.0_144/src.zip!/java/security/CodeSource.java" root0="FORCE_HIGHLIGHTING" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="F:\resource\apache-maven-3.3.9-bin\maven_repository" />
-        <option name="mavenHome" value="$PROJECT_DIR$/../resource/apache-maven-3.3.9-bin/apache-maven-3.3.9" />
-        <option name="userSettingsFile" value="F:\resource\apache-maven-3.3.9-bin\apache-maven-3.3.9\conf\settings.xml" />
+        <option name="localRepository" value="D:\enviorment\apache-maven-repo" />
+        <option name="mavenHome" value="D:/enviorment/apache-maven-3.8.5" />
+        <option name="userSettingsFile" value="D:\enviorment\apache-maven-3.8.5\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -62,32 +66,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DatabaseDriversLRU" value="mysql" />
-    <property name="RequestMappingsPanelOrder0" value="0" />
-    <property name="RequestMappingsPanelOrder1" value="1" />
-    <property name="RequestMappingsPanelWidth0" value="75" />
-    <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/oj-judge/src/main/resources/static" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.1483932" />
-    <property name="project.structure.side.proportion" value="0.29915434" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
-    <property name="settings.editor.splitter.proportion" value="0.25543994" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;bdaee63cd5bbaff6eee418cf2b7dabd6&quot;
+  }
+}</component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -190,36 +177,32 @@
     </configuration>
     <configuration name="OjGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="oj-gateway" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.geteway.OjGatewayApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.geteway.OjGatewayApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="OjJudgeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="oj-judge" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.judge.OjJudgeApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.judge.OjJudgeApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="OjPlatformApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="oj-platform" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.platform.OjPlatformApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.platform.OjPlatformApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="OjQuestionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="oj-question" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.question.OjQuestionApplication" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.cheerful.oj.question.OjQuestionApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -316,6 +299,11 @@
       <workItem from="1650365517762" duration="159000" />
       <workItem from="1650372949238" duration="1361000" />
       <workItem from="1650618217264" duration="676000" />
+      <workItem from="1653987522761" duration="1951000" />
+      <workItem from="1654053597162" duration="656000" />
+      <workItem from="1654055432016" duration="1008000" />
+      <workItem from="1654484942245" duration="1976000" />
+      <workItem from="1654495546754" duration="7105000" />
     </task>
     <task id="LOCAL-00001" summary="更改nacos地址">
       <created>1647349538515</created>
@@ -338,6 +326,17 @@
         <option value="Default.Date" />
         <option value="Default.Subject" />
       </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
