@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cheerful.oj.question.dao.QuestionDao">
+
+    <resultMap type="com.cheerful.oj.question.entity.Question" id="QuestionMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
+        <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
+        <result property="diffLevel" column="diff_level" jdbcType="INTEGER"/>
+        <result property="submitCount" column="submit_count" jdbcType="INTEGER"/>
+        <result property="outSamples" column="out_samples" jdbcType="VARCHAR"/>
+        <result property="inSamples" column="in_samples" jdbcType="VARCHAR"/>
+        <result property="isShow" column="is_show" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into oj_qms.qms_question(content, title, gmt_create, gmt_modified, diff_level, submit_count, out_samples, in_samples, is_show)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+        (#{entity.content}, #{entity.title}, #{entity.gmtCreate}, #{entity.gmtModified}, #{entity.diffLevel}, #{entity.submitCount}, #{entity.outSamples}, #{entity.inSamples}, #{entity.isShow})
+        </foreach>
+    </insert>
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into oj_qms.qms_question(content, title, gmt_create, gmt_modified, diff_level, submit_count, out_samples, in_samples, is_show)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.content}, #{entity.title}, #{entity.gmtCreate}, #{entity.gmtModified}, #{entity.diffLevel}, #{entity.submitCount}, #{entity.outSamples}, #{entity.inSamples}, #{entity.isShow})
+        </foreach>
+        on duplicate key update
+         content = values(content) , title = values(title) , gmt_create = values(gmt_create) , gmt_modified = values(gmt_modified) , diff_level = values(diff_level) , submit_count = values(submit_count) , out_samples = values(out_samples) , in_samples = values(in_samples) , is_show = values(is_show)     </insert>
+
+</mapper>
+

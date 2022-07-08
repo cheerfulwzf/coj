@@ -60,32 +60,32 @@ public class RabbitConfig {
         return new TopicExchange("judge-event-exchange", true, false);
     }
 
-    /**
-     * 判题完成发送到此队列
-     * @return
-     */
-    @Bean
-    public Queue judgeFinishQueue() {
-        //String name, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments
-        return new Queue("judge.finish.queue", true, false, false);
-    }
+//    /**
+//     * 判题完成发送到此队列
+//     * @return
+//     */
+//    @Bean
+//    public Queue judgeFinishQueue() {
+//        //String name, boolean durable, boolean exclusive, boolean autoDelete, Map<String, Object> arguments
+//        return new Queue("judge.finish.queue", true, false, false);
+//    }
 
-    /**
-     * 交换机与判题完成队列绑定
-     * @return
-     */
-    @Bean
-    public Binding judgeFinishBind() {
-        //String destination, DestinationType destinationType, String exchange, String routingKey,
-        // 			Map<String, Object> arguments
-        Binding binding = new Binding("judge.finish.queue",
-                Binding.DestinationType.QUEUE,
-                "judge-event-exchange",
-                "judge.finish",
-                null);
-
-        return binding;
-    }
+//    /**
+//     * 交换机与判题完成队列绑定
+//     * @return
+//     */
+//    @Bean
+//    public Binding judgeFinishBind() {
+//        //String destination, DestinationType destinationType, String exchange, String routingKey,
+//        // 			Map<String, Object> arguments
+//        Binding binding = new Binding("judge.finish.queue",
+//                Binding.DestinationType.QUEUE,
+//                "judge-event-exchange",
+//                "judge.finish",
+//                null);
+//
+//        return binding;
+//    }
 
     /**
      * 等待判题的消息发送到此队列
