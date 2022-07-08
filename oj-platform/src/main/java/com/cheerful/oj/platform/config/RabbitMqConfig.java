@@ -37,17 +37,11 @@ public class RabbitMqConfig {
      */
     @PostConstruct
     public void initRabbitTemplate(){
-        rabbitTemplate.setConfirmCallback(new RabbitTemplate.ConfirmCallback() {
-            @Override
-            public void confirm(CorrelationData correlationData, boolean b, String s) {
-                // TODO: 2022/3/27 LOG 消息确认失败
-            }
+        rabbitTemplate.setConfirmCallback((correlationData, b, s) -> {
+            // TODO: 2022/3/27 LOG 消息确认失败
         });
-        rabbitTemplate.setReturnCallback(new RabbitTemplate.ReturnCallback() {
-            @Override
-            public void returnedMessage(Message message, int i, String s, String s1, String s2) {
-                // TODO: 2022/3/27 LOG 消息推送失败
-            }
+        rabbitTemplate.setReturnCallback((message, i, s, s1, s2) -> {
+            // TODO: 2022/3/27 LOG 消息推送失败可以保存进db或者redis，后面定时任务重试
         });
     }
 }

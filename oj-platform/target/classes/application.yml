@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: oj-platform
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: cc200155
+    url: jdbc:mysql://192.168.44.3:3308/oj_ums?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.44.1:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  rabbitmq:
+    host: 192.168.44.3
+    virtual-host: /
+    listener:
+      direct:
+        #消息确认机制
+        acknowledge-mode: manual
+  redis:
+    host: 192.168.44.3
+#    password: cc200155
+    port: 6379
+  session:
+    store-type: redis
+    timeout: 120 #过期120s
+  mail:
+    host: smtp.qq.com
+    username: cheerful0120@qq.com
+    port: 587
+    password: uobfduqubyvreade
+    properties:
+      mail:
+        smtp:
+          auth: true
+#          socketFactoryClass: javax.net.ssl.SSLSocketFactory
+#        #表示开启 DEBUG 模式，这样，邮件发送过程的日志会在控制台打印出来，方便排查错误
+#        debug: true
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+
+server:
+  port: 5088
+  servlet:
+    context-path: /platform
+
+oj:
+  thread:
+    core-size: 20
+    max-size: 200
+    keep-alive-time: 10

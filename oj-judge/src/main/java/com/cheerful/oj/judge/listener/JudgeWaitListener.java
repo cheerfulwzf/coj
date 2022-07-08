@@ -4,6 +4,7 @@ import com.cheerful.oj.common.dto.JudgeResultDTO;
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.judge.service.JudgeService;
 import com.rabbitmq.client.Channel;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -18,6 +19,7 @@ import java.io.IOException;
  * @DESCRIPTION:
  */
 @Service
+@Slf4j
 @RabbitListener(queues = "judge.wait.queue")
 public class JudgeWaitListener {
     JudgeService judgeService;
@@ -36,12 +38,11 @@ public class JudgeWaitListener {
      */
     @RabbitHandler
     public void handleWaitJudge(JudgeTaskDTO task, Message message, Channel channel) throws IOException {
-        System.out.println("收到判题任务");
         try {
             judgeService.judge(task);
             channel.basicAck(message.getMessageProperties().getDeliveryTag(),false);
         } catch (Exception e) {
-            System.out.println("判题出现错误：" + e.getCause());
+            log.info("判题发生错误：{}",e.getMessage());
             e.printStackTrace();
             //消息消费失败，重回队列
             channel.basicReject(message.getMessageProperties().getDeliveryTag(),true);

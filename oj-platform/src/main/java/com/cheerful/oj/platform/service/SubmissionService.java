@@ -12,10 +12,5 @@ import com.cheerful.oj.platform.entity.Submission;
  */
 public interface SubmissionService extends IService<Submission> {
 
-    /**
-     * 更新之间阻塞中的判题记录
-     * @param res
-     */
-    void updateDetails(JudgeResultDTO res);
 }
 

@@ -1,0 +1,26 @@
+server:
+  port: 4088
+  servlet:
+    context-path: /q
+
+spring:
+  application:
+    name: oj-question
+  datasource:
+    url: jdbc:mysql://192.168.44.3:3308/oj_qms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: cc200155
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.44.1:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
