@@ -13,16 +13,20 @@ import com.cheerful.oj.platform.pojo.dto.Question;
 import com.cheerful.oj.platform.pojo.vo.JudgeTaskVO;
 import com.cheerful.oj.platform.service.SubmissionService;
 import com.cheerful.oj.platform.util.UuidUtil;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.data.redis.core.script.DefaultRedisScript;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.concurrent.ThreadPoolExecutor;
+import javax.annotation.Resource;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @AUTHOR: Wang Zhifu
@@ -33,20 +37,19 @@ import java.util.concurrent.ThreadPoolExecutor;
 @RestController
 public class JudgeCore {
     @Autowired
-    RabbitTemplate rabbitTemplate;
+    private RabbitTemplate rabbitTemplate;
 
     @Autowired
-    QuestionFeignService questionFeignService;
+    private QuestionFeignService questionFeignService;
 
     @Autowired
-    SubmissionService submissionService;
+    private SubmissionService submissionService;
 
-    @Qualifier("MyThreadPoolExecutor")
-    @Autowired
-    ThreadPoolExecutor executor;
+    @Resource(name = "MyThreadPoolExecutor")
+    private ThreadPoolExecutor executor;
 
     @Autowired
-    StringRedisTemplate redisTemplate;
+    private StringRedisTemplate redisTemplate;
 
     /**
      * 对前端暴露接口，增加判题任务到消息队列，保证接口幂等

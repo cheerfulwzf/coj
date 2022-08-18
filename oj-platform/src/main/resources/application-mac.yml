@@ -1,0 +1,26 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: cc200155
+    url: jdbc:mysql://localhost:3306/oj_ums?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  rabbitmq:
+    host: localhost
+    virtual-host: /
+    listener:
+      direct:
+        #消息确认机制
+        acknowledge-mode: manual
+  redis:
+    host: localhost
+    #    password: cc200155
+    port: 6379
+  session:
+    store-type: redis
+    timeout: 120 #过期120s，上线要修改，意味着用户登陆状态保持时间

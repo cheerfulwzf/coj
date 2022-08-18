@@ -1,10 +1,9 @@
 package com.cheerful.oj.judge.entity;
 
-import java.util.Date;
-
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * (Submission)表实体类
@@ -14,156 +13,156 @@ import java.io.Serializable;
  */
 @TableName("ums_submission")
 public class Submission extends Model<Submission> {
-    
-    private Long id;
-    
-    private Long userId;
-    //用户
-    private String nickname;
-    
-    private Long questionId;
-    //题目
-    private String questionTitle;
-    //时间占用
-    private Double timeUsed;
-    //内存占用
-    private Double memoryUsed;
-    //时间
-    private Date gmtCreate;
-    //提交语言
-    private Integer language;
-    
-    private String fromIp;
-    //判题结果状态
-    private Integer resultCode;
-    //响应详细信息数据
-    private String resultInfo;
-    //判题结果信息
-    private String resultMsg;
-    //用户源代码
-    private String source;
+
+  private Long id;
+
+  private Long userId;
+  //用户
+  private String nickname;
+
+  private Long questionId;
+  //题目
+  private String questionTitle;
+  //时间占用
+  private Double timeUsed;
+  //内存占用
+  private Double memoryUsed;
+  //时间
+  private Date gmtCreate;
+  //提交语言
+  private Integer language;
+
+  private String fromIp;
+  //判题结果状态
+  private Integer resultCode;
+  //响应详细信息数据
+  private String resultInfo;
+  //判题结果信息
+  private String resultMsg;
+  //用户源代码
+  private String source;
 
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Long getUserId() {
-        return userId;
-    }
+  public Long getUserId() {
+    return userId;
+  }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
+  public void setUserId(Long userId) {
+    this.userId = userId;
+  }
 
-    public String getNickname() {
-        return nickname;
-    }
+  public String getNickname() {
+    return nickname;
+  }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+  public void setNickname(String nickname) {
+    this.nickname = nickname;
+  }
 
-    public Long getQuestionId() {
-        return questionId;
-    }
+  public Long getQuestionId() {
+    return questionId;
+  }
 
-    public void setQuestionId(Long questionId) {
-        this.questionId = questionId;
-    }
+  public void setQuestionId(Long questionId) {
+    this.questionId = questionId;
+  }
 
-    public String getQuestionTitle() {
-        return questionTitle;
-    }
+  public String getQuestionTitle() {
+    return questionTitle;
+  }
 
-    public void setQuestionTitle(String questionTitle) {
-        this.questionTitle = questionTitle;
-    }
+  public void setQuestionTitle(String questionTitle) {
+    this.questionTitle = questionTitle;
+  }
 
-    public Double getTimeUsed() {
-        return timeUsed;
-    }
+  public Double getTimeUsed() {
+    return timeUsed;
+  }
 
-    public void setTimeUsed(Double timeUsed) {
-        this.timeUsed = timeUsed;
-    }
+  public void setTimeUsed(Double timeUsed) {
+    this.timeUsed = timeUsed;
+  }
 
-    public Double getMemoryUsed() {
-        return memoryUsed;
-    }
+  public Double getMemoryUsed() {
+    return memoryUsed;
+  }
 
-    public void setMemoryUsed(Double memoryUsed) {
-        this.memoryUsed = memoryUsed;
-    }
+  public void setMemoryUsed(Double memoryUsed) {
+    this.memoryUsed = memoryUsed;
+  }
 
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
+  public Date getGmtCreate() {
+    return gmtCreate;
+  }
 
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
+  public void setGmtCreate(Date gmtCreate) {
+    this.gmtCreate = gmtCreate;
+  }
 
-    public Integer getLanguage() {
-        return language;
-    }
+  public Integer getLanguage() {
+    return language;
+  }
 
-    public void setLanguage(Integer language) {
-        this.language = language;
-    }
+  public void setLanguage(Integer language) {
+    this.language = language;
+  }
 
-    public String getFromIp() {
-        return fromIp;
-    }
+  public String getFromIp() {
+    return fromIp;
+  }
 
-    public void setFromIp(String fromIp) {
-        this.fromIp = fromIp;
-    }
+  public void setFromIp(String fromIp) {
+    this.fromIp = fromIp;
+  }
 
-    public Integer getResultCode() {
-        return resultCode;
-    }
+  public Integer getResultCode() {
+    return resultCode;
+  }
 
-    public void setResultCode(Integer resultCode) {
-        this.resultCode = resultCode;
-    }
+  public void setResultCode(Integer resultCode) {
+    this.resultCode = resultCode;
+  }
 
-    public String getResultInfo() {
-        return resultInfo;
-    }
+  public String getResultInfo() {
+    return resultInfo;
+  }
 
-    public void setResultInfo(String resultInfo) {
-        this.resultInfo = resultInfo;
-    }
+  public void setResultInfo(String resultInfo) {
+    this.resultInfo = resultInfo;
+  }
 
-    public String getResultMsg() {
-        return resultMsg;
-    }
+  public String getResultMsg() {
+    return resultMsg;
+  }
 
-    public void setResultMsg(String resultMsg) {
-        this.resultMsg = resultMsg;
-    }
+  public void setResultMsg(String resultMsg) {
+    this.resultMsg = resultMsg;
+  }
 
-    public String getSource() {
-        return source;
-    }
+  public String getSource() {
+    return source;
+  }
 
-    public void setSource(String source) {
-        this.source = source;
-    }
+  public void setSource(String source) {
+    this.source = source;
+  }
 
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
-    }
+  /**
+   * 获取主键值
+   *
+   * @return 主键值
+   */
+  @Override
+  protected Serializable pkVal() {
+    return this.id;
+  }
+}
 

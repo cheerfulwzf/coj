@@ -6,8 +6,9 @@ package com.cheerful.oj.common.exception;
  * @DATE: 2022/3/7 22:34
  * @DESCRIPTION:
  */
-public class EmailExistException extends RuntimeException{
-    public EmailExistException(String message) {
-        super(message);
-    }
+public class EmailExistException extends RuntimeException {
+
+  public EmailExistException(String message) {
+    super(message);
+  }
 }

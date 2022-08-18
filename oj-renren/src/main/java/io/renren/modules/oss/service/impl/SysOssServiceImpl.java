@@ -1,8 +1,8 @@
 /**
  * Copyright (c) 2016-2019 人人开源 All rights reserved.
- *
+ * <p>
  * https://www.renren.io
- *
+ * <p>
  * 版权所有，侵权必究！
  */
 
@@ -15,21 +15,21 @@ import io.renren.common.utils.Query;
 import io.renren.modules.oss.dao.SysOssDao;
 import io.renren.modules.oss.entity.SysOssEntity;
 import io.renren.modules.oss.service.SysOssService;
-import org.springframework.stereotype.Service;
-
 import java.util.Map;
+import org.springframework.stereotype.Service;
 
 
 @Service("sysOssService")
-public class SysOssServiceImpl extends ServiceImpl<SysOssDao, SysOssEntity> implements SysOssService {
+public class SysOssServiceImpl extends ServiceImpl<SysOssDao, SysOssEntity> implements
+  SysOssService {
 
-	@Override
-	public PageUtils queryPage(Map<String, Object> params) {
-		IPage<SysOssEntity> page = this.page(
-			new Query<SysOssEntity>().getPage(params)
-		);
+  @Override
+  public PageUtils queryPage(Map<String, Object> params) {
+    IPage<SysOssEntity> page = this.page(
+      new Query<SysOssEntity>().getPage(params)
+    );
 
-		return new PageUtils(page);
-	}
-	
+    return new PageUtils(page);
+  }
+
 }

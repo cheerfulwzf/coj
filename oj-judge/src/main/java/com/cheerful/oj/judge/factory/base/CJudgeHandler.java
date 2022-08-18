@@ -1,13 +1,11 @@
 package com.cheerful.oj.judge.factory.base;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
-import com.cheerful.oj.judge.util.ExecutorUtil;
 import com.cheerful.oj.judge.util.FileUtil;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-
 import java.io.File;
 import java.io.IOException;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * @AUTHOR: Wang Zhifu
@@ -16,18 +14,19 @@ import java.io.IOException;
  * @DESCRIPTION:
  */
 @Component
-public abstract class CJudgeHandler extends JudgeHandler{
-    @Value("${judge.c.runCmd}")
-    private String runCmd;
+public abstract class CJudgeHandler extends JudgeHandler {
 
-    @Override
-    protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-        File srcFile=new File(path,"main.c");
-        FileUtil.write(task.getSource(),srcFile);
-    }
+  @Value("${judge.c.runCmd}")
+  private String runCmd;
 
-    @Override
-    protected String getRunCommand(File path) {
-        return runCmd.replace("PATH",path.getPath());
-    }
+  @Override
+  protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
+    File srcFile = new File(path, "main.c");
+    FileUtil.write(task.getSource(), srcFile);
+  }
+
+  @Override
+  protected String getRunCommand(File path) {
+    return runCmd.replace("PATH", path.getPath());
+  }
 }

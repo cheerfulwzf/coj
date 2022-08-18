@@ -6,8 +6,9 @@ package com.cheerful.oj.judge.exception;
  * @DATE: 2022/3/11 15:00
  * @DESCRIPTION:
  */
-public class OrderTypeNotFoundException extends RuntimeException{
-    public OrderTypeNotFoundException(String msg) {
-        super(msg);
-    }
+public class OrderTypeNotFoundException extends RuntimeException {
+
+  public OrderTypeNotFoundException(String msg) {
+    super(msg);
+  }
 }

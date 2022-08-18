@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="oj_cms@192.168.44.3">
-  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.39">
+  <database-model serializer="dbm" dbms="MYSQL" family-id="MYSQL" format-version="4.40">
     <root id="1"/>
     <collation id="2" parent="1" name="armscii8_bin">
       <Charset>armscii8</Charset>
@@ -801,9 +801,9 @@
       <Position>6</Position>
     </column>
     <key id="256" parent="244" name="PRIMARY">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>id</UnderlyingIndexColNames>
     </key>
     <column id="257" parent="245" name="id">
       <AutoIncrement>1</AutoIncrement>
@@ -824,9 +824,9 @@
       <Position>4</Position>
     </column>
     <key id="261" parent="245" name="PRIMARY">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>id</UnderlyingIndexColNames>
     </key>
     <column id="262" parent="246" name="id">
       <AutoIncrement>1</AutoIncrement>
@@ -863,9 +863,9 @@
       <Position>8</Position>
     </column>
     <key id="270" parent="246" name="PRIMARY">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>id</UnderlyingIndexColNames>
     </key>
     <column id="271" parent="247" name="id">
       <AutoIncrement>1</AutoIncrement>
@@ -894,9 +894,9 @@
       <Position>6</Position>
     </column>
     <key id="277" parent="247" name="PRIMARY">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>id</UnderlyingIndexColNames>
     </key>
     <column id="278" parent="248" name="id">
       <AutoIncrement>1</AutoIncrement>
@@ -917,9 +917,9 @@
       <Position>4</Position>
     </column>
     <key id="282" parent="248" name="PRIMARY">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>id</UnderlyingIndexColNames>
     </key>
     <column id="283" parent="249" name="id">
       <AutoIncrement>1</AutoIncrement>
@@ -948,9 +948,9 @@
       <Position>6</Position>
     </column>
     <key id="289" parent="249" name="PRIMARY">
-      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>id</UnderlyingIndexColNames>
     </key>
   </database-model>
 </dataSource>

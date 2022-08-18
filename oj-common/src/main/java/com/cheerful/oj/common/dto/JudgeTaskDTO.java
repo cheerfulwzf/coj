@@ -1,8 +1,7 @@
 package com.cheerful.oj.common.dto;
 
-import lombok.Data;
-
 import java.util.List;
+import lombok.Data;
 
 /**
  * @AUTHOR: Wang Zhifu
@@ -12,27 +11,26 @@ import java.util.List;
  */
 @Data
 public class JudgeTaskDTO {
-    /**
-     * 以下属性从下往上分别为
-     * 题目id、判题id、输入、输出、时间限制、空间限制、语言选择模板、源代码
-     */
-    private Long qid;
 
-    private Long submissionId;
+  /**
+   * 以下属性从下往上分别为 题目id、判题id、输入、输出、时间限制、空间限制、语言选择模板、源代码
+   */
+  private Long qid;
 
-    private List<String> input;
+  private Long submissionId;
 
-    private List<String> output;
+  private List<String> input;
 
-    private Double timeLimit;
+  private List<String> output;
 
-    private Double memoryLimit;
+  private Double timeLimit;
 
-    /**
-     * 语言选择模板。
-     * 0--->Java
-     */
-    private Integer orderType;
+  private Double memoryLimit;
 
-    private String source;
+  /**
+   * 语言选择模板。 0--->Java
+   */
+  private Integer orderType;
+
+  private String source;
 }
