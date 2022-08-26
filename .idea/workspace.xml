@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="714def73-347c-41a4-854f-16a7dc937fb3" name="Default Changelist" comment="更改nacos地址">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,9 +39,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="localRepository" value="F:\resource\apache-maven-3.3.9-bin\maven_repository" />
         <option name="mavenHome" value="$PROJECT_DIR$/../resource/apache-maven-3.3.9-bin/apache-maven-3.3.9" />
-        <option name="userSettingsFile" value="F:\resource\apache-maven-3.3.9-bin\apache-maven-3.3.9\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -52,14 +49,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/didi/IdeaProjects/coj/oj-judge/src/main/resources&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;c75d19dd7c8a75fc2dc62c9b0f1f1074&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/didi/IdeaProjects/coj/oj-judge/src/main/resources",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "c75d19dd7c8a75fc2dc62c9b0f1f1074"
   }
-}</component>
+}]]></component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
@@ -299,7 +297,8 @@
       <workItem from="1660821342801" duration="5378000" />
       <workItem from="1660826838892" duration="245000" />
       <workItem from="1661398289156" duration="156000" />
-      <workItem from="1661495174800" duration="48000" />
+      <workItem from="1661495174800" duration="92000" />
+      <workItem from="1661495292129" duration="146000" />
     </task>
     <task id="LOCAL-00001" summary="更改nacos地址">
       <created>1647349538515</created>
