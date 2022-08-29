@@ -107,7 +107,7 @@ public class JudgeFactory {
         try {
           other.init(orderType.toString());
           judgeHandler = other;
-        }catch (Exception e) {
+        } catch (Exception e) {
 
         }
     }

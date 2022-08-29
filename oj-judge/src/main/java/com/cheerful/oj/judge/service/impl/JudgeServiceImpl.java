@@ -8,6 +8,9 @@ import com.cheerful.oj.judge.factory.JudgeFactory;
 import com.cheerful.oj.judge.factory.base.JudgeHandler;
 import com.cheerful.oj.judge.service.JudgeService;
 import com.cheerful.oj.judge.service.SubmissionService;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ThreadPoolExecutor;
+import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +31,9 @@ public class JudgeServiceImpl implements JudgeService {
   @Autowired
   SubmissionService submissionService;
 
+  @Resource(name = "MyThreadPoolExecutor")
+  ThreadPoolExecutor executor;
+
   @Override
   public void judge(JudgeTaskDTO task) {
     Submission submission = submissionService.getById(task.getSubmissionId());
@@ -39,6 +45,10 @@ public class JudgeServiceImpl implements JudgeService {
     if (handler == null) {
       return;
     }
+    CompletableFuture.runAsync(() -> doJudge(handler, task, submission), executor);
+  }
+
+  private void doJudge(JudgeHandler handler, JudgeTaskDTO task, Submission submission) {
     JudgeResultDTO res = handler.judge(task);
     res.setSubmissionId(task.getSubmissionId());
     //发送消息表示判题完成
