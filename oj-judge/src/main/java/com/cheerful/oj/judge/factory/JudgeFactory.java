@@ -71,7 +71,7 @@ public class JudgeFactory {
    * @return 最终各语言的判题
    */
   public JudgeHandler createJudgeHandler(Integer orderType) {
-    JudgeHandler judgeHandler = null;
+    JudgeHandler judgeHandler;
     switch (orderType) {
       case 0:
         judgeHandler = java;
@@ -104,12 +104,8 @@ public class JudgeFactory {
         judgeHandler = js;
         break;
       default:
-        try {
           other.init(orderType.toString());
           judgeHandler = other;
-        } catch (Exception e) {
-
-        }
     }
     return judgeHandler;
   }

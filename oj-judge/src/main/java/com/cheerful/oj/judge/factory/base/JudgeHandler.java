@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
@@ -19,6 +21,7 @@ import org.springframework.beans.factory.annotation.Value;
  * @DATE: 2022/3/10 21:45
  * @DESCRIPTION:
  */
+@Slf4j
 public abstract class JudgeHandler {
 
   @Value("${judge.judgePath}")
@@ -40,6 +43,7 @@ public abstract class JudgeHandler {
     //创建工作目录 /tmp/OnlineJudgeWorkspace/time
     File path = new File(judgePath + File.separator + System.currentTimeMillis());
     if (!createWorkspace(task, result, path)) {
+      result.setGlobalMsg("服务器路径出错");
       ExecutorUtil.exec("rm -rf " + path.getPath(), 1000);
       return result;
     }
@@ -168,25 +172,24 @@ public abstract class JudgeHandler {
    */
   private boolean createWorkspace(JudgeTaskDTO task, JudgeResultDTO result, File path) {
     try {
-      if (!path.exists()) {
-        path.mkdirs();
-      }
       //创建输入输出文件
-      if (task.getQid() != null) {
+      if (!path.exists() && path.mkdirs() && task.getQid() != null) {
         for (int i = 0; i < task.getInput().size(); i++) {
           File inFile = new File(path, i + ".in");
           File outFile = new File(path, i + ".out");
-          inFile.createNewFile();
-          FileUtil.write(task.getInput().get(i), inFile);
-          outFile.createNewFile();
-          FileUtil.write(task.getOutput().get(i), outFile);
+          if (inFile.createNewFile() && outFile.createNewFile()) {
+            FileUtil.write(task.getInput().get(i), inFile);
+            FileUtil.write(task.getOutput().get(i), outFile);
+          } else {
+            return false;
+          }
         }
       }
-      // TODO: 2022/3/11 后期新增把测试数据改成下载文件的方式
+      // TODO: 2022/3/11 后期可以新增把测试数据改成下载文件的方式
       //创建源代码文件
       createSrc(task, path);
     } catch (IOException e) {
-      result.setGlobalMsg("服务器路径出错" + e);
+      log.info("服务器路径出错：{}",e.getMessage());
       return false;
     }
     return true;
