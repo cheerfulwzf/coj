@@ -18,6 +18,7 @@ oj:
     core-size: 8
     max-size: 50
     keep-alive-time: 10
+    queue-length: 100
 
 custom-cmd:
   map:
