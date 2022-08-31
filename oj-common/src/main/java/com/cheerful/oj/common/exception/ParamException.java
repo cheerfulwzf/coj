@@ -1,6 +1,10 @@
 package com.cheerful.oj.common.exception;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * @AUTHOR: Wang Zhifu
@@ -13,7 +17,8 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ParamException extends RuntimeException{
-    private int code;
-    private String msg;
+public class ParamException extends RuntimeException {
+
+  private int code;
+  private String msg;
 }

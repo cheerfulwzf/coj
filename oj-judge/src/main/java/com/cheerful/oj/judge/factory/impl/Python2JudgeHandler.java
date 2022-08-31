@@ -4,12 +4,10 @@ import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.judge.factory.base.JudgeHandler;
 import com.cheerful.oj.judge.util.ExecutorUtil;
 import com.cheerful.oj.judge.util.FileUtil;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Service;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.logging.Handler;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 /**
  * @AUTHOR: Wang Zhifu
@@ -19,26 +17,27 @@ import java.util.logging.Handler;
  */
 @Service
 public class Python2JudgeHandler extends JudgeHandler {
-    @Value("${judge.Python2word}")
-    private String compilerWord;
 
-    @Value("${judge.Python2run}")
-    private String runWord;
+  @Value("${judge.Python2word}")
+  private String compilerWord;
 
-    @Override
-    protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-        File src = new File(path, "main.py");
-        FileUtil.write(task.getSource(),src);
-    }
+  @Value("${judge.Python2run}")
+  private String runWord;
 
-    @Override
-    protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
-        String cmd = compilerWord.replace("PATH",path.getPath());
-        return ExecutorUtil.exec(cmd, 2000);
-    }
+  @Override
+  protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
+    File src = new File(path, "main.py");
+    FileUtil.write(task.getSource(), src);
+  }
 
-    @Override
-    protected String getRunCommand(File path) {
-        return runWord.replace("PATH",path.getPath());
-    }
+  @Override
+  protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
+    String cmd = compilerWord.replace("PATH", path.getPath());
+    return ExecutorUtil.exec(cmd, 2000);
+  }
+
+  @Override
+  protected String getRunCommand(File path) {
+    return runWord.replace("PATH", path.getPath());
+  }
 }

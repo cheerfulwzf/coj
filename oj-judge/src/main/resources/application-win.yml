@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: cc200155
+    url: jdbc:mysql://192.168.44.3:3308/oj_ums?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.44.1:8848
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+  rabbitmq:
+    host: 192.168.44.3
+    virtual-host: /
+    listener:
+      direct:
+        acknowledge-mode: manual #消息确认机制

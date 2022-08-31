@@ -21,9 +21,9 @@ import java.util.List;
  * @author Mark sunlightcs@gmail.com
  */
 public interface SysUserRoleService extends IService<SysUserRoleEntity> {
-	
+
 	void saveOrUpdate(Long userId, List<Long> roleIdList);
-	
+
 	/**
 	 * 根据用户ID，获取角色ID列表
 	 */

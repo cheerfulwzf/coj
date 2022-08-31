@@ -14,25 +14,26 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ResultCaseDTO {
-    private Integer status;
 
-    private Integer timeUsed;
+  private Integer status;
 
-    private Integer memoryUsed;
+  private Integer timeUsed;
 
-    private String errorMessage;
+  private Integer memoryUsed;
 
-    private String input;
+  private String errorMessage;
 
-    //用户输出
-    private String tempOut;
+  private String input;
 
-    private String output;
+  //用户输出
+  private String tempOut;
 
-    public ResultCaseDTO(Integer status, Integer timeUsed, Integer memoryUsed, String errorMessage) {
-        this.status = status;
-        this.timeUsed = timeUsed;
-        this.memoryUsed = memoryUsed;
-        this.errorMessage = errorMessage;
-    }
+  private String output;
+
+  public ResultCaseDTO(Integer status, Integer timeUsed, Integer memoryUsed, String errorMessage) {
+    this.status = status;
+    this.timeUsed = timeUsed;
+    this.memoryUsed = memoryUsed;
+    this.errorMessage = errorMessage;
+  }
 }
