@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
  * @DESCRIPTION: 自定义线程池
  */
 @Configuration
-public class MyThreadPoolConfig {
+public class ThreadPoolConfig {
 
   @Qualifier("MyThreadPoolExecutor")
   @Bean(name = "MyThreadPoolExecutor")
@@ -24,7 +24,7 @@ public class MyThreadPoolConfig {
       poolProperties.getCoreSize(),
       poolProperties.getMaxSize(),
       poolProperties.getKeepAliveTime(), TimeUnit.MILLISECONDS,
-      new LinkedBlockingDeque<>(10000),
+      new LinkedBlockingDeque<>(poolProperties.getQueueLength()),
       Executors.defaultThreadFactory(),
       new ThreadPoolExecutor.AbortPolicy()
     );
