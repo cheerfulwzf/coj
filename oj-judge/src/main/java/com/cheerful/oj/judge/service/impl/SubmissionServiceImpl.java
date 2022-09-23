@@ -10,6 +10,7 @@ import com.cheerful.oj.judge.entity.Submission;
 import com.cheerful.oj.judge.service.SubmissionService;
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 /**
  * (Submission)表服务实现类
@@ -23,27 +24,30 @@ public class SubmissionServiceImpl extends ServiceImpl<SubmissionDao, Submission
 
   @Override
   public void updateDetails(Submission submission, JudgeResultDTO res) {
-    if (res.getGlobalMsg() == null) {
+    int resultCode = -1;
+    double timeUsed = -1, memUsed = -1;
+    if (StringUtils.isEmpty(res.getGlobalMsg())) {
       List<ResultCaseDTO> results = res.getResult();
-      int resultCode = -1;
-      double timeUsed = -1, memUsed = -1;
       for (ResultCaseDTO result : results) {
         //得到最大的时间内存消耗，以及最终结果
         resultCode = Math.max(resultCode, result.getStatus());
         timeUsed = Math.max(result.getTimeUsed(), timeUsed);
         memUsed = Math.max(result.getMemoryUsed(), timeUsed);
       }
-      submission.setResultCode(resultCode);
-      submission.setResultMsg(JudgeStatusConstant.getMsgByCode(resultCode));
-      submission.setResultInfo(JSON.toJSONString(res.getResult()));
-      submission.setTimeUsed(timeUsed);
-      submission.setMemoryUsed(memUsed);
+      afterJudgeBuild(submission,resultCode,JSON.toJSONString(res.getResult()),timeUsed,memUsed);
     } else {
-      submission.setResultInfo(res.getGlobalMsg());
-      submission.setResultCode(JudgeStatusConstant.CE.getCode());
-      submission.setResultMsg(JudgeStatusConstant.CE.getMsg());
+      afterJudgeBuild(submission,JudgeStatusConstant.RE.getCode(),res.getGlobalMsg(),timeUsed,memUsed);
     }
     this.updateById(submission);
+  }
+
+  private void afterJudgeBuild(Submission submission,
+                          Integer resultCode, String resultInfo, Double timeUsed, Double memUsed) {
+    submission.setResultCode(resultCode);
+    submission.setResultMsg(JudgeStatusConstant.getMsgByCode(resultCode));
+    submission.setResultInfo(resultInfo);
+    submission.setTimeUsed(timeUsed);
+    submission.setMemoryUsed(memUsed);
   }
 }
 

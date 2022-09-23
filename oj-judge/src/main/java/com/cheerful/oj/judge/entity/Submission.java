@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import java.io.Serializable;
 import java.util.Date;
+import lombok.Builder;
 
 /**
  * (Submission)表实体类
@@ -11,6 +12,7 @@ import java.util.Date;
  * @author makejava
  * @since 2022-06-22 20:20:18
  */
+@Builder
 @TableName("ums_submission")
 public class Submission extends Model<Submission> {
 

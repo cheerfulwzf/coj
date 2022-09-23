@@ -41,6 +41,7 @@ public class OtherJudgeHandler extends JudgeHandler {
     }
     List<String> cmds = map.get(orderType);
     if (cmds.size() == 1) {
+      //有的语言不用编译，则只有一条命令，如js
       this.runCmd = cmds.get(0);
     } else if (cmds.size() == 2) {
       this.compilerCmd = cmds.get(0);
@@ -52,6 +53,9 @@ public class OtherJudgeHandler extends JudgeHandler {
 
   @Override
   protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
+    if (StringUtils.isEmpty(compilerCmd)) {
+      return;
+    }
     File src = new File(path, compilerCmd.substring(compilerCmd.indexOf('/')));
     FileUtil.write(task.getSource(), src);
   }

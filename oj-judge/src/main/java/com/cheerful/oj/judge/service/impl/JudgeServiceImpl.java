@@ -42,9 +42,6 @@ public class JudgeServiceImpl implements JudgeService {
       return;
     }
     JudgeHandler handler = judgeFactory.createJudgeHandler(task.getOrderType());
-    if (handler == null) {
-      return;
-    }
     CompletableFuture.runAsync(() -> doJudge(handler, task, submission), executor);
   }
 
