@@ -17,16 +17,16 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ThreadPoolConfig {
 
-  @Qualifier("MyThreadPoolExecutor")
-  @Bean(name = "MyThreadPoolExecutor")
-  public ThreadPoolExecutor threadPoolExecutor(ThreadPoolProperties poolProperties) {
-    return new ThreadPoolExecutor(
-      poolProperties.getCoreSize(),
-      poolProperties.getMaxSize(),
-      poolProperties.getKeepAliveTime(), TimeUnit.MILLISECONDS,
-      new LinkedBlockingDeque<>(poolProperties.getQueueLength()),
-      Executors.defaultThreadFactory(),
-      new ThreadPoolExecutor.AbortPolicy()
-    );
-  }
+	@Qualifier("MyThreadPoolExecutor")
+	@Bean(name = "MyThreadPoolExecutor")
+	public ThreadPoolExecutor threadPoolExecutor(ThreadPoolProperties poolProperties) {
+		return new ThreadPoolExecutor(
+			poolProperties.getCoreSize(),
+			poolProperties.getMaxSize(),
+			poolProperties.getKeepAliveTime(), TimeUnit.MILLISECONDS,
+			new LinkedBlockingDeque<>(poolProperties.getQueueLength()),
+			Executors.defaultThreadFactory(),
+			new ThreadPoolExecutor.AbortPolicy()
+		);
+	}
 }

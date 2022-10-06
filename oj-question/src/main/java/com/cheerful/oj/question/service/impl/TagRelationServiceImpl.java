@@ -1,13 +1,11 @@
 package com.cheerful.oj.question.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.cheerful.oj.question.entity.Tag;
-import com.cheerful.oj.question.service.TagRelationService;
 import com.cheerful.oj.question.dao.QmaQTagRelationDao;
 import com.cheerful.oj.question.entity.QmaQTagRelation;
-import org.springframework.stereotype.Service;
-
+import com.cheerful.oj.question.service.TagRelationService;
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 /**
  * (QmaQTagRelation)表服务实现类
@@ -16,11 +14,12 @@ import java.util.List;
  * @since 2022-03-12 16:05:22
  */
 @Service("qmaQTagRelationService")
-public class TagRelationServiceImpl extends ServiceImpl<QmaQTagRelationDao, QmaQTagRelation> implements TagRelationService {
+public class TagRelationServiceImpl extends
+	ServiceImpl<QmaQTagRelationDao, QmaQTagRelation> implements TagRelationService {
 
-    @Override
-    public List<String> selectRelationTagName(Long qid) {
-        return this.baseMapper.selectRelationTagName(qid);
-    }
+	@Override
+	public List<String> selectRelationTagName(Long qid) {
+		return this.baseMapper.selectRelationTagName(qid);
+	}
 }
 

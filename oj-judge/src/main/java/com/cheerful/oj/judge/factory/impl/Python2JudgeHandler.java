@@ -18,26 +18,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class Python2JudgeHandler extends JudgeHandler {
 
-  @Value("${judge.Python2word}")
-  private String compilerWord;
+	@Value("${judge.Python2word}")
+	private String compilerWord;
 
-  @Value("${judge.Python2run}")
-  private String runWord;
+	@Value("${judge.Python2run}")
+	private String runWord;
 
-  @Override
-  protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-    File src = new File(path, "main.py");
-    FileUtil.write(task.getSource(), src);
-  }
+	@Override
+	protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
+		File src = new File(path, "main.py");
+		FileUtil.write(task.getSource(), src);
+	}
 
-  @Override
-  protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
-    String cmd = compilerWord.replace("PATH", path.getPath());
-    return ExecutorUtil.exec(cmd, 2000);
-  }
+	@Override
+	protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
+		String cmd = compilerWord.replace("PATH", path.getPath());
+		return ExecutorUtil.exec(cmd, 2000);
+	}
 
-  @Override
-  protected String getRunCommand(File path) {
-    return runWord.replace("PATH", path.getPath());
-  }
+	@Override
+	protected String getRunCommand(File path) {
+		return runWord.replace("PATH", path.getPath());
+	}
 }

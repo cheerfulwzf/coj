@@ -21,32 +21,32 @@ import org.springframework.stereotype.Service;
 @RabbitListener(queues = "judge.wait.queue")
 public class JudgeWaitListener {
 
-  JudgeService judgeService;
+	private final JudgeService judgeService;
 
-  public JudgeWaitListener(JudgeService judgeService) {
-    this.judgeService = judgeService;
-  }
+	public JudgeWaitListener(JudgeService judgeService) {
+		this.judgeService = judgeService;
+	}
 
-  /**
-   * 收到需要判题的消息，消费消息判题，判题成功回传消息到消息队列告诉其结果
-   *
-   * <b>#这里我们应该使用手动ack机制，以免任务失败消息丢失</b>
-   *
-   * @param task    消息内容
-   * @param message 消息信息
-   * @param channel 消息通道，ack通知
-   */
-  @RabbitHandler
-  public void handleWaitJudge(JudgeTaskDTO task, Message message, Channel channel)
-    throws IOException {
-    try {
-      judgeService.judge(task);
-      channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
-    } catch (Exception e) {
-      log.info("判题发生错误：{}", e.getMessage());
-      e.printStackTrace();
-      //消息消费失败，重回队列/本地表
+	/**
+	 * 收到需要判题的消息，消费消息判题，判题成功回传消息到消息队列告诉其结果
+	 *
+	 * <b>#这里我们应该使用手动ack机制，以免任务失败消息丢失</b>
+	 *
+	 * @param task    消息内容
+	 * @param message 消息信息
+	 * @param channel 消息通道，ack通知
+	 */
+	@RabbitHandler
+	public void handleWaitJudge(JudgeTaskDTO task, Message message, Channel channel)
+		throws IOException {
+		try {
+			judgeService.judge(task);
+			channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
+		} catch (Exception e) {
+			log.info("判题发生错误：{}", e.getMessage());
+			e.printStackTrace();
+			//消息消费失败，重回队列/本地表
 //            channel.basicReject(message.getMessageProperties().getDeliveryTag(),true);
-    }
-  }
+		}
+	}
 }

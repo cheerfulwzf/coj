@@ -20,11 +20,14 @@ oj:
     keep-alive-time: 10
     queue-length: 100
 
+# 自定义添加判题的语言
 custom-cmd:
   map:
-    11:
-      - python2 -m py_compile PATH/main.py
-      - python2 -m py_compile PATH/main.py
-    12:
-      - python3 -m py_compile PATH/main.py
-      - python3 -m py_compile PATH/main.py
+#    11:
+#      - python2
+#      - python2 -m py_compile PATH/main.py
+#      - python2 -m py_compile PATH/main.py
+#    12:
+#      - python3
+#      - python3 -m py_compile PATH/main.py
+#      - python3 -m py_compile PATH/main.py

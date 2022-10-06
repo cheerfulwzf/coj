@@ -13,56 +13,56 @@ import java.io.Serializable;
  */
 @TableName("qms_q_tag_relation")
 public class QmaQTagRelation extends Model<QmaQTagRelation> {
-    
-    private Long id;
-    
-    private Long qid;
-    
-    private Long tid;
-    
-    private String tValue;
+
+	private Long id;
+
+	private Long qid;
+
+	private Long tid;
+
+	private String tValue;
 
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public Long getQid() {
-        return qid;
-    }
+	public Long getQid() {
+		return qid;
+	}
 
-    public void setQid(Long qid) {
-        this.qid = qid;
-    }
+	public void setQid(Long qid) {
+		this.qid = qid;
+	}
 
-    public Long getTid() {
-        return tid;
-    }
+	public Long getTid() {
+		return tid;
+	}
 
-    public void setTid(Long tid) {
-        this.tid = tid;
-    }
+	public void setTid(Long tid) {
+		this.tid = tid;
+	}
 
-    public String getTValue() {
-        return tValue;
-    }
+	public String getTValue() {
+		return tValue;
+	}
 
-    public void setTValue(String tValue) {
-        this.tValue = tValue;
-    }
+	public void setTValue(String tValue) {
+		this.tValue = tValue;
+	}
 
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
-    }
+	/**
+	 * 获取主键值
+	 *
+	 * @return 主键值
+	 */
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+}
 

@@ -10,5 +10,5 @@ import com.cheerful.oj.common.dto.JudgeTaskDTO;
  */
 public interface JudgeService {
 
-  void judge(JudgeTaskDTO task);
+	void judge(JudgeTaskDTO task);
 }

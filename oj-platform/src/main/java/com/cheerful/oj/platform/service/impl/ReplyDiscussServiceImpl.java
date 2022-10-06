@@ -13,7 +13,8 @@ import org.springframework.stereotype.Service;
  * @since 2022-03-10 17:04:22
  */
 @Service("replyDiscussService")
-public class ReplyDiscussServiceImpl extends ServiceImpl<ReplyDiscussDao, ReplyDiscuss> implements ReplyDiscussService {
+public class ReplyDiscussServiceImpl extends ServiceImpl<ReplyDiscussDao, ReplyDiscuss> implements
+	ReplyDiscussService {
 
 }
 

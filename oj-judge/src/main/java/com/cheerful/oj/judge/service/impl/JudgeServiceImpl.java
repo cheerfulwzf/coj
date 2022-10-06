@@ -25,31 +25,31 @@ import org.springframework.stereotype.Service;
 @Service
 public class JudgeServiceImpl implements JudgeService {
 
-  @Autowired
-  JudgeFactory judgeFactory;
+	@Autowired
+	private JudgeFactory judgeFactory;
 
-  @Autowired
-  SubmissionService submissionService;
+	@Autowired
+	private SubmissionService submissionService;
 
-  @Resource(name = "MyThreadPoolExecutor")
-  ThreadPoolExecutor executor;
+	@Resource(name = "MyThreadPoolExecutor")
+	private ThreadPoolExecutor executor;
 
-  @Override
-  public void judge(JudgeTaskDTO task) {
-    Submission submission = submissionService.getById(task.getSubmissionId());
-    //避免消息重复消费 消费端幂等性
-    if (!submission.getResultCode().equals(JudgeStatusConstant.BLOCK.getCode())) {
-      return;
-    }
-    JudgeHandler handler = judgeFactory.createJudgeHandler(task.getOrderType());
-    CompletableFuture.runAsync(() -> doJudge(handler, task, submission), executor);
-  }
+	@Override
+	public void judge(JudgeTaskDTO task) {
+		Submission submission = submissionService.getById(task.getSubmissionId());
+		//避免消息重复消费 消费端幂等性
+		if (!submission.getResultCode().equals(JudgeStatusConstant.BLOCK.getCode())) {
+			return;
+		}
+		JudgeHandler handler = judgeFactory.createJudgeHandler(task.getOrderType());
+		CompletableFuture.runAsync(() -> doJudge(handler, task, submission), executor);
+	}
 
-  private void doJudge(JudgeHandler handler, JudgeTaskDTO task, Submission submission) {
-    JudgeResultDTO res = handler.judge(task);
-    res.setSubmissionId(task.getSubmissionId());
-    //发送消息表示判题完成
-    log.info("C语言判题完成：{}", res);
-    submissionService.updateDetails(submission, res);
-  }
+	private void doJudge(JudgeHandler handler, JudgeTaskDTO task, Submission submission) {
+		JudgeResultDTO res = handler.judge(task);
+		res.setSubmissionId(task.getSubmissionId());
+		//发送消息表示判题完成
+		log.info("C语言判题完成：{}", res);
+		submissionService.updateDetails(submission, res);
+	}
 }

@@ -1,50 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cheerful.oj.platform.dao.UserDao">
 
-    <resultMap type="com.cheerful.oj.platform.entity.User" id="UserMap">
-        <result property="id" column="id" jdbcType="INTEGER"/>
-        <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
-        <result property="avatarUrl" column="avatar_url" jdbcType="VARCHAR"/>
-        <result property="email" column="email" jdbcType="VARCHAR"/>
-        <result property="password" column="password" jdbcType="VARCHAR"/>
-        <result property="userDesc" column="user_desc" jdbcType="VARCHAR"/>
-        <result property="userRole" column="user_role" jdbcType="INTEGER"/>
-        <result property="sex" column="sex" jdbcType="INTEGER"/>
-        <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
-        <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
-        <result property="socialId" column="social_id" jdbcType="INTEGER"/>
-        <result property="accessToken" column="access_token" jdbcType="VARCHAR"/>
-        <result property="prohabitStatus" column="prohabit_status" jdbcType="INTEGER"/>
-    </resultMap>
+  <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+    insert into oj_ums.ums_user(nickname, avatar_url, email, password, user_desc, user_role, sex,
+    gmt_create,
+    gmt_modified, social_id, access_token, prohabit_status)
+    values
+    <foreach collection="entities" item="entity" separator=",">
+      (#{entity.nickname}, #{entity.avatarUrl}, #{entity.email}, #{entity.password},
+      #{entity.userDesc},
+      #{entity.userRole}, #{entity.sex}, #{entity.gmtCreate}, #{entity.gmtModified},
+      #{entity.socialId},
+      #{entity.accessToken}, #{entity.prohabitStatus})
+    </foreach>
+  </insert>
 
-    <!-- 批量插入 -->
-    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into oj_ums.ums_user(nickname, avatar_url, email, password, user_desc, user_role, sex, gmt_create,
-        gmt_modified, social_id, access_token, prohabit_status)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-            (#{entity.nickname}, #{entity.avatarUrl}, #{entity.email}, #{entity.password}, #{entity.userDesc},
-            #{entity.userRole}, #{entity.sex}, #{entity.gmtCreate}, #{entity.gmtModified}, #{entity.socialId},
-            #{entity.accessToken}, #{entity.prohabitStatus})
-        </foreach>
-    </insert>
-    <!-- 批量插入或按主键更新 -->
-    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into oj_ums.ums_user(nickname, avatar_url, email, password, user_desc, user_role, sex, gmt_create,
-        gmt_modified, social_id, access_token, prohabit_status)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-            (#{entity.nickname}, #{entity.avatarUrl}, #{entity.email}, #{entity.password}, #{entity.userDesc},
-            #{entity.userRole}, #{entity.sex}, #{entity.gmtCreate}, #{entity.gmtModified}, #{entity.socialId},
-            #{entity.accessToken}, #{entity.prohabitStatus})
-        </foreach>
-        on duplicate key update
-        nickname = values(nickname) , avatar_url = values(avatar_url) , email = values(email) , password =
-        values(password) , user_desc = values(user_desc) , user_role = values(user_role) , sex = values(sex) ,
-        gmt_create = values(gmt_create) , gmt_modified = values(gmt_modified) , social_id = values(social_id) ,
-        access_token = values(access_token) , prohabit_status = values(prohabit_status)
-    </insert>
+  <!-- 批量插入 -->
+  <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+    insert into oj_ums.ums_user(nickname, avatar_url, email, password, user_desc, user_role, sex,
+    gmt_create,
+    gmt_modified, social_id, access_token, prohabit_status)
+    values
+    <foreach collection="entities" item="entity" separator=",">
+      (#{entity.nickname}, #{entity.avatarUrl}, #{entity.email}, #{entity.password},
+      #{entity.userDesc},
+      #{entity.userRole}, #{entity.sex}, #{entity.gmtCreate}, #{entity.gmtModified},
+      #{entity.socialId},
+      #{entity.accessToken}, #{entity.prohabitStatus})
+    </foreach>
+    on duplicate key update
+    nickname = values(nickname) , avatar_url = values(avatar_url) , email = values(email) , password
+    =
+    values(password) , user_desc = values(user_desc) , user_role = values(user_role) , sex =
+    values(sex) ,
+    gmt_create = values(gmt_create) , gmt_modified = values(gmt_modified) , social_id =
+    values(social_id) ,
+    access_token = values(access_token) , prohabit_status = values(prohabit_status)
+  </insert>
+  <!-- 批量插入或按主键更新 -->
+  <resultMap id="UserMap" type="com.cheerful.oj.platform.entity.User">
+    <result column="id" jdbcType="INTEGER" property="id"/>
+    <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatarUrl"/>
+    <result column="email" jdbcType="VARCHAR" property="email"/>
+    <result column="password" jdbcType="VARCHAR" property="password"/>
+    <result column="user_desc" jdbcType="VARCHAR" property="userDesc"/>
+    <result column="user_role" jdbcType="INTEGER" property="userRole"/>
+    <result column="sex" jdbcType="INTEGER" property="sex"/>
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+    <result column="social_id" jdbcType="INTEGER" property="socialId"/>
+    <result column="access_token" jdbcType="VARCHAR" property="accessToken"/>
+    <result column="prohabit_status" jdbcType="INTEGER" property="prohabitStatus"/>
+  </resultMap>
 
 </mapper>
 

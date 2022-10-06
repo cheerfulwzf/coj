@@ -18,28 +18,28 @@ import org.springframework.stereotype.Component;
 @Component
 public class JavaJudgeHandler extends JudgeHandler {
 
-  @Value("${judge.java.compilerCmd}")
-  private String compilerCmd;
+	@Value("${judge.java.compilerCmd}")
+	private String compilerCmd;
 
-  @Value("${judge.java.runCmd}")
-  private String runCmd;
+	@Value("${judge.java.runCmd}")
+	private String runCmd;
 
-  @Override
-  protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-    File src = new File(path, "Main.java");
-    FileUtil.write(task.getSource(), src);
-  }
+	@Override
+	protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
+		File src = new File(path, "Main.java");
+		FileUtil.write(task.getSource(), src);
+	}
 
-  @Override
-  protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
-    // javac /tmp/OnlineJudgeWorkspace/test/Main.java
-    String cmd = compilerCmd.replace("PATH", path.getPath());
-    return ExecutorUtil.exec(cmd, 2000);
-  }
+	@Override
+	protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
+		// javac /tmp/OnlineJudgeWorkspace/test/Main.java
+		String cmd = compilerCmd.replace("PATH", path.getPath());
+		return ExecutorUtil.exec(cmd, 2000);
+	}
 
-  @Override
-  protected String getRunCommand(File path) {
-    //java -classpath /tmp/OnlineJudgeWorkspace/test Main
-    return runCmd.replace("PATH", path.getPath());
-  }
+	@Override
+	protected String getRunCommand(File path) {
+		//java -classpath /tmp/OnlineJudgeWorkspace/test Main
+		return runCmd.replace("PATH", path.getPath());
+	}
 }

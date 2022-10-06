@@ -14,17 +14,17 @@ import org.springframework.beans.factory.annotation.Value;
  */
 public abstract class CPPJudgeHandler extends JudgeHandler {
 
-  @Value("${judge.c.runCmd}")
-  private String runCmd;
+	@Value("${judge.c.runCmd}")
+	private String runCmd;
 
-  @Override
-  protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-    File src = new File(path, "main.cpp");
-    FileUtil.write(task.getSource(), src);
-  }
+	@Override
+	protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
+		File src = new File(path, "main.cpp");
+		FileUtil.write(task.getSource(), src);
+	}
 
-  @Override
-  protected String getRunCommand(File path) {
-    return runCmd.replace("PATH", path.getPath());
-  }
+	@Override
+	protected String getRunCommand(File path) {
+		return runCmd.replace("PATH", path.getPath());
+	}
 }

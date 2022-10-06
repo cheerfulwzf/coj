@@ -15,12 +15,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class GNUC99JudgeHandler extends CJudgeHandler {
 
-  @Value("${judge.GNUC99.compilerCmd}")
-  private String compilerWord;
+	@Value("${judge.GNUC99.compilerCmd}")
+	private String compilerWord;
 
-  @Override
-  protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
-    String cmd = compilerWord.replace("PATH", path.getPath());
-    return ExecutorUtil.exec(cmd, 5000);
-  }
+	@Override
+	protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
+		String cmd = compilerWord.replace("PATH", path.getPath());
+		return ExecutorUtil.exec(cmd, 5000);
+	}
 }

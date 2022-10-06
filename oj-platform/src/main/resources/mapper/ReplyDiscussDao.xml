@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cheerful.oj.platform.dao.ReplyDiscussDao">
 
-    <resultMap type="com.cheerful.oj.platform.entity.ReplyDiscuss" id="ReplyDiscussMap">
-        <result property="id" column="id" jdbcType="INTEGER"/>
-        <result property="uId" column="u_id" jdbcType="INTEGER"/>
-        <result property="nickname" column="nickname" jdbcType="VARCHAR"/>
-        <result property="content" column="content" jdbcType="VARCHAR"/>
-        <result property="gmtCreate" column="gmt_create" jdbcType="TIMESTAMP"/>
-        <result property="gmtModified" column="gmt_modified" jdbcType="TIMESTAMP"/>
-        <result property="favorNum" column="favor_num" jdbcType="INTEGER"/>
-    </resultMap>
+  <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+    insert into oj_ums.ums_reply_discuss(u_id, nickname, content, gmt_create, gmt_modified,
+    favor_num)
+    values
+    <foreach collection="entities" item="entity" separator=",">
+      (#{entity.uId}, #{entity.nickname}, #{entity.content}, #{entity.gmtCreate},
+      #{entity.gmtModified},
+      #{entity.favorNum})
+    </foreach>
+  </insert>
 
-    <!-- 批量插入 -->
-    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into oj_ums.ums_reply_discuss(u_id, nickname, content, gmt_create, gmt_modified, favor_num)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-            (#{entity.uId}, #{entity.nickname}, #{entity.content}, #{entity.gmtCreate}, #{entity.gmtModified},
-            #{entity.favorNum})
-        </foreach>
-    </insert>
-    <!-- 批量插入或按主键更新 -->
-    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into oj_ums.ums_reply_discuss(u_id, nickname, content, gmt_create, gmt_modified, favor_num)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-            (#{entity.uId}, #{entity.nickname}, #{entity.content}, #{entity.gmtCreate}, #{entity.gmtModified},
-            #{entity.favorNum})
-        </foreach>
-        on duplicate key update
-        u_id = values(u_id) , nickname = values(nickname) , content = values(content) , gmt_create = values(gmt_create)
-        , gmt_modified = values(gmt_modified) , favor_num = values(favor_num)
-    </insert>
+  <!-- 批量插入 -->
+  <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+    insert into oj_ums.ums_reply_discuss(u_id, nickname, content, gmt_create, gmt_modified,
+    favor_num)
+    values
+    <foreach collection="entities" item="entity" separator=",">
+      (#{entity.uId}, #{entity.nickname}, #{entity.content}, #{entity.gmtCreate},
+      #{entity.gmtModified},
+      #{entity.favorNum})
+    </foreach>
+    on duplicate key update
+    u_id = values(u_id) , nickname = values(nickname) , content = values(content) , gmt_create =
+    values(gmt_create)
+    , gmt_modified = values(gmt_modified) , favor_num = values(favor_num)
+  </insert>
+  <!-- 批量插入或按主键更新 -->
+  <resultMap id="ReplyDiscussMap" type="com.cheerful.oj.platform.entity.ReplyDiscuss">
+    <result column="id" jdbcType="INTEGER" property="id"/>
+    <result column="u_id" jdbcType="INTEGER" property="uId"/>
+    <result column="nickname" jdbcType="VARCHAR" property="nickname"/>
+    <result column="content" jdbcType="VARCHAR" property="content"/>
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate"/>
+    <result column="gmt_modified" jdbcType="TIMESTAMP" property="gmtModified"/>
+    <result column="favor_num" jdbcType="INTEGER" property="favorNum"/>
+  </resultMap>
 
 </mapper>
 

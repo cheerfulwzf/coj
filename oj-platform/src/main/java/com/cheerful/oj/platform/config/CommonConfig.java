@@ -17,21 +17,22 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  */
 @Configuration
 public class CommonConfig implements WebMvcConfigurer {
-    @Bean
-    public RestTemplate getRestTemplate(){
-        return new RestTemplate();
-    }
 
-    /**
-     * spring session序列化方式
-     */
-    @Bean
-    public RedisSerializer<Object> springSessionDefaultRedisSerializer(){
-        return new GenericJackson2JsonRedisSerializer();
-    }
+	@Bean
+	public RestTemplate getRestTemplate() {
+		return new RestTemplate();
+	}
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LoginUserInterceptor()).addPathPatterns("/**");
-    }
+	/**
+	 * spring session序列化方式
+	 */
+	@Bean
+	public RedisSerializer<Object> springSessionDefaultRedisSerializer() {
+		return new GenericJackson2JsonRedisSerializer();
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new LoginUserInterceptor()).addPathPatterns("/**");
+	}
 }

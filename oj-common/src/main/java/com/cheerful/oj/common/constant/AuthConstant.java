@@ -8,6 +8,6 @@ package com.cheerful.oj.common.constant;
  */
 public class AuthConstant {
 
-  public static final String EMS_CODE_CACHE_PREFIX = "ems:code:";
-  public static final String LOGIN_USER = "loginUser";
+	public static final String EMS_CODE_CACHE_PREFIX = "ems:code:";
+	public static final String LOGIN_USER = "loginUser";
 }

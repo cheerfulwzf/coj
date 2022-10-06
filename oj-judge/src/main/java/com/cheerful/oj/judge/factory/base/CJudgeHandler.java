@@ -13,20 +13,19 @@ import org.springframework.stereotype.Component;
  * @DATE: 2022/3/26 15:41
  * @DESCRIPTION:
  */
-@Component
 public abstract class CJudgeHandler extends JudgeHandler {
 
-  @Value("${judge.c.runCmd}")
-  private String runCmd;
+	@Value("${judge.c.runCmd}")
+	private String runCmd;
 
-  @Override
-  protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-    File srcFile = new File(path, "main.c");
-    FileUtil.write(task.getSource(), srcFile);
-  }
+	@Override
+	protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
+		File srcFile = new File(path, "main.c");
+		FileUtil.write(task.getSource(), srcFile);
+	}
 
-  @Override
-  protected String getRunCommand(File path) {
-    return runCmd.replace("PATH", path.getPath());
-  }
+	@Override
+	protected String getRunCommand(File path) {
+		return runCmd.replace("PATH", path.getPath());
+	}
 }

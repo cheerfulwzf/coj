@@ -12,25 +12,25 @@ import lombok.Data;
 @Data
 public class JudgeTaskDTO {
 
-  /**
-   * 以下属性从下往上分别为 题目id、判题id、输入、输出、时间限制、空间限制、语言选择模板、源代码
-   */
-  private Long qid;
+	/**
+	 * 以下属性从下往上分别为 题目id、判题id、输入、输出、时间限制、空间限制、语言选择模板、源代码
+	 */
+	private Long qid;
 
-  private Long submissionId;
+	private Long submissionId;
 
-  private List<String> input;
+	private List<String> input;
 
-  private List<String> output;
+	private List<String> output;
 
-  private Double timeLimit;
+	private Double timeLimit;
 
-  private Double memoryLimit;
+	private Double memoryLimit;
 
-  /**
-   * 语言选择模板。 0--->Java
-   */
-  private Integer orderType;
+	/**
+	 * 语言选择模板。 0--->Java
+	 */
+	private Integer orderType;
 
-  private String source;
+	private String source;
 }

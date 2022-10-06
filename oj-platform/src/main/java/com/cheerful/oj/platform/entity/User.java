@@ -5,11 +5,10 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-
 import java.io.Serializable;
 import java.util.Date;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 /**
  * (User)表实体类
@@ -22,43 +21,43 @@ import java.util.Date;
 @TableName("ums_user")
 public class User extends Model<User> {
 
-    private Long id;
+	private Long id;
 
-    private String nickname;
+	private String nickname;
 
-    private String avatarUrl;
+	private String avatarUrl;
 
-    private String email;
+	private String email;
 
-    private String password;
+	private String password;
 
-    private String userDesc;
+	private String userDesc;
 
-    private Integer userRole;
+	private Integer userRole;
 
-    private Integer sex;
+	private Integer sex;
 
-    @TableField(fill = FieldFill.INSERT)
-    private Date gmtCreate;
+	@TableField(fill = FieldFill.INSERT)
+	private Date gmtCreate;
 
-    @TableField(fill = FieldFill.INSERT)
-    private Date gmtModified;
+	@TableField(fill = FieldFill.INSERT)
+	private Date gmtModified;
 
-    private Long socialId;
+	private Long socialId;
 
-    private String accessToken;
+	private String accessToken;
 
-    @TableField(fill = FieldFill.INSERT)
-    private Integer prohabitStatus;
+	@TableField(fill = FieldFill.INSERT)
+	private Integer prohabitStatus;
 
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
+	/**
+	 * 获取主键值
+	 *
+	 * @return 主键值
+	 */
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
 }
 

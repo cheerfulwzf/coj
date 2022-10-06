@@ -19,6 +19,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ParamException extends RuntimeException {
 
-  private int code;
-  private String msg;
+	private int code;
+	private String msg;
 }

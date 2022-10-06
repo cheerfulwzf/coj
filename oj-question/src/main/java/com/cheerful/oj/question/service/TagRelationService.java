@@ -2,8 +2,6 @@ package com.cheerful.oj.question.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.cheerful.oj.question.entity.QmaQTagRelation;
-import com.cheerful.oj.question.entity.Tag;
-
 import java.util.List;
 
 /**
@@ -13,11 +11,13 @@ import java.util.List;
  * @since 2022-03-12 16:05:22
  */
 public interface TagRelationService extends IService<QmaQTagRelation> {
-    /**
-     * 查找题目关联的标签名
-     * @param qid
-     * @return
-     */
-    List<String> selectRelationTagName(Long qid);
+
+	/**
+	 * 查找题目关联的标签名
+	 *
+	 * @param qid
+	 * @return
+	 */
+	List<String> selectRelationTagName(Long qid);
 }
 

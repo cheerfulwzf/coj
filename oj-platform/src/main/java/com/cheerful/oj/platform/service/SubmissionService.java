@@ -1,7 +1,6 @@
 package com.cheerful.oj.platform.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cheerful.oj.common.dto.JudgeResultDTO;
 import com.cheerful.oj.platform.entity.Submission;
 
 /**

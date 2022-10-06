@@ -1,8 +1,5 @@
 package com.cheerful.oj.geteway.test;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 /**
  * @AUTHOR: Wang Zhifu
  * @PROJECT_NAME: oj_system
@@ -11,17 +8,17 @@ import org.springframework.stereotype.Component;
  */
 public class A {
 
-    private B b;
+	private B b;
 
-    public B getB() {
-        return b;
-    }
+	public A() {
+		System.out.println("a success");
+	}
 
-    public void setB(B b) {
-        this.b = b;
-    }
+	public B getB() {
+		return b;
+	}
 
-    public A() {
-        System.out.println("a success");
-    }
+	public void setB(B b) {
+		this.b = b;
+	}
 }

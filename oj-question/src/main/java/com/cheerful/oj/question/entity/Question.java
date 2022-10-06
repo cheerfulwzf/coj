@@ -17,150 +17,150 @@ import java.util.List;
  */
 @TableName("qms_question")
 public class Question extends Model<Question> {
-    
-    private Long id;
-    
-    private String content;
-    
-    private String title;
 
-    @TableField(fill = FieldFill.INSERT)
-    private Date gmtCreate;
+	private Long id;
 
-    @TableField(fill = FieldFill.INSERT_UPDATE)
-    private Date gmtModified;
-    
-    private Integer diffLevel;
+	private String content;
 
-    @TableField(fill = FieldFill.INSERT)
-    private Integer submitCount;
-    
-    private String outSamples;
-    
-    private String inSamples;
+	private String title;
 
-    @TableField(fill = FieldFill.INSERT)
-    private Integer isShow;
+	@TableField(fill = FieldFill.INSERT)
+	private Date gmtCreate;
 
-    private Double timeLimit;
+	@TableField(fill = FieldFill.INSERT_UPDATE)
+	private Date gmtModified;
 
-    private Double memoryLimit;
+	private Integer diffLevel;
 
-    @TableField(exist = false)
-    private List<String> tags;
+	@TableField(fill = FieldFill.INSERT)
+	private Integer submitCount;
 
-    public List<String> getTags() {
-        return tags;
-    }
+	private String outSamples;
 
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
+	private String inSamples;
 
-    public Double getTimeLimit() {
-        return timeLimit;
-    }
+	@TableField(fill = FieldFill.INSERT)
+	private Integer isShow;
 
-    public void setTimeLimit(Double timeLimit) {
-        this.timeLimit = timeLimit;
-    }
+	private Double timeLimit;
 
-    public Double getMemoryLimit() {
-        return memoryLimit;
-    }
+	private Double memoryLimit;
 
-    public void setMemoryLimit(Double memoryLimit) {
-        this.memoryLimit = memoryLimit;
-    }
+	@TableField(exist = false)
+	private List<String> tags;
 
-    public Long getId() {
-        return id;
-    }
+	public List<String> getTags() {
+		return tags;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setTags(List<String> tags) {
+		this.tags = tags;
+	}
 
-    public String getContent() {
-        return content;
-    }
+	public Double getTimeLimit() {
+		return timeLimit;
+	}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+	public void setTimeLimit(Double timeLimit) {
+		this.timeLimit = timeLimit;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public Double getMemoryLimit() {
+		return memoryLimit;
+	}
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+	public void setMemoryLimit(Double memoryLimit) {
+		this.memoryLimit = memoryLimit;
+	}
 
-    public Date getGmtCreate() {
-        return gmtCreate;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setGmtCreate(Date gmtCreate) {
-        this.gmtCreate = gmtCreate;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public Date getGmtModified() {
-        return gmtModified;
-    }
+	public String getContent() {
+		return content;
+	}
 
-    public void setGmtModified(Date gmtModified) {
-        this.gmtModified = gmtModified;
-    }
+	public void setContent(String content) {
+		this.content = content;
+	}
 
-    public Integer getDiffLevel() {
-        return diffLevel;
-    }
+	public String getTitle() {
+		return title;
+	}
 
-    public void setDiffLevel(Integer diffLevel) {
-        this.diffLevel = diffLevel;
-    }
+	public void setTitle(String title) {
+		this.title = title;
+	}
 
-    public Integer getSubmitCount() {
-        return submitCount;
-    }
+	public Date getGmtCreate() {
+		return gmtCreate;
+	}
 
-    public void setSubmitCount(Integer submitCount) {
-        this.submitCount = submitCount;
-    }
+	public void setGmtCreate(Date gmtCreate) {
+		this.gmtCreate = gmtCreate;
+	}
 
-    public String getOutSamples() {
-        return outSamples;
-    }
+	public Date getGmtModified() {
+		return gmtModified;
+	}
 
-    public void setOutSamples(String outSamples) {
-        this.outSamples = outSamples;
-    }
+	public void setGmtModified(Date gmtModified) {
+		this.gmtModified = gmtModified;
+	}
 
-    public String getInSamples() {
-        return inSamples;
-    }
+	public Integer getDiffLevel() {
+		return diffLevel;
+	}
 
-    public void setInSamples(String inSamples) {
-        this.inSamples = inSamples;
-    }
+	public void setDiffLevel(Integer diffLevel) {
+		this.diffLevel = diffLevel;
+	}
 
-    public Integer getIsShow() {
-        return isShow;
-    }
+	public Integer getSubmitCount() {
+		return submitCount;
+	}
 
-    public void setIsShow(Integer isShow) {
-        this.isShow = isShow;
-    }
+	public void setSubmitCount(Integer submitCount) {
+		this.submitCount = submitCount;
+	}
 
-    /**
-     * 获取主键值
-     *
-     * @return 主键值
-     */
-    @Override
-    protected Serializable pkVal() {
-        return this.id;
-    }
-    }
+	public String getOutSamples() {
+		return outSamples;
+	}
+
+	public void setOutSamples(String outSamples) {
+		this.outSamples = outSamples;
+	}
+
+	public String getInSamples() {
+		return inSamples;
+	}
+
+	public void setInSamples(String inSamples) {
+		this.inSamples = inSamples;
+	}
+
+	public Integer getIsShow() {
+		return isShow;
+	}
+
+	public void setIsShow(Integer isShow) {
+		this.isShow = isShow;
+	}
+
+	/**
+	 * 获取主键值
+	 *
+	 * @return 主键值
+	 */
+	@Override
+	protected Serializable pkVal() {
+		return this.id;
+	}
+}
 

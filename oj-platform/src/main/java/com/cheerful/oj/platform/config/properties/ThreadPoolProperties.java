@@ -14,7 +14,8 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "oj.thread")
 public class ThreadPoolProperties {
-    private Integer coreSize;
-    private Integer maxSize;
-    private Integer keepAliveTime;
+
+	private Integer coreSize;
+	private Integer maxSize;
+	private Integer keepAliveTime;
 }

@@ -8,11 +8,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class OjJudgeApplicationTests {
 
-  @Autowired
-  JudgeFactory factory;
+	@Autowired
+	JudgeFactory factory;
 
-  @Test
-  public void testSourceType() {
-    System.out.println(factory.createJudgeHandler(11));
-  }
+	@Test
+	public void testSourceType() {
+		System.out.println(factory.createJudgeHandler(11));
+	}
 }

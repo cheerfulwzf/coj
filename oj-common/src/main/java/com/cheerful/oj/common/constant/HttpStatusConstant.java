@@ -8,8 +8,8 @@ package com.cheerful.oj.common.constant;
  */
 public class HttpStatusConstant {
 
-  public static final Integer TOKEN_EXIST = 1001;
-  public static final Integer TOKEN_NOT_FOUND = 1002;
+	public static final Integer TOKEN_EXIST = 1001;
+	public static final Integer TOKEN_NOT_FOUND = 1002;
 
-  public static final Integer QUESTION_NOT_FOUND = 2001;
+	public static final Integer QUESTION_NOT_FOUND = 2001;
 }

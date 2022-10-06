@@ -13,7 +13,8 @@ import org.springframework.stereotype.Service;
  * @since 2022-03-10 17:04:24
  */
 @Service("userLoginLogService")
-public class UserLoginLogServiceImpl extends ServiceImpl<UserLoginLogDao, UserLoginLog> implements UserLoginLogService {
+public class UserLoginLogServiceImpl extends ServiceImpl<UserLoginLogDao, UserLoginLog> implements
+	UserLoginLogService {
 
 }
 

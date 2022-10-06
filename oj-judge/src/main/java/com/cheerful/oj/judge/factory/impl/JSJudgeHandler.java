@@ -20,23 +20,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class JSJudgeHandler extends JudgeHandler {
 
-  @Value("${judge.js.runCmd}")
-  private String runWord;
+	@Value("${judge.js.runCmd}")
+	private String runWord;
 
-  @Override
-  protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-    File src = new File(path, "main.js");
-    FileUtil.write(task.getSource(), src);
-  }
+	@Override
+	protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
+		File src = new File(path, "main.js");
+		FileUtil.write(task.getSource(), src);
+	}
 
-  @Override
-  protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
-    log.info("JavaScript no Compiler");
-    return null;
-  }
+	@Override
+	protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
+		log.info("JavaScript no Compiler");
+		return null;
+	}
 
-  @Override
-  protected String getRunCommand(File path) {
-    return runWord.replace("PATH", path.getPath());
-  }
+	@Override
+	protected String getRunCommand(File path) {
+		return runWord.replace("PATH", path.getPath());
+	}
 }
