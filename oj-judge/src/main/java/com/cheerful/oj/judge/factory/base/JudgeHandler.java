@@ -7,6 +7,7 @@ import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.common.dto.ResultCaseDTO;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import com.cheerful.oj.common.util.FileUtil;
+import com.cheerful.oj.common.util.JsonUtil;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -49,11 +50,13 @@ public abstract class JudgeHandler {
 
 		//编译
 		if (!compiler(result, path)) {
+			log.info("taskId:{}, 编译失败, error msg:{}", task.getSubmissionId(), result.getGlobalMsg());
 			ExecutorUtil.exec("rm -rf " + path.getPath(), 1000);
 			return result;
 		}
 
 		//编译没问题，终于开始执行代码判断输入输出了
+		log.info("taskId:{}, 编译完成", task.getSubmissionId());
 		runSource(task, result, path);
 		ExecutorUtil.exec("rm -rf " + path.getPath(), 1000);
 		return result;
@@ -91,6 +94,7 @@ public abstract class JudgeHandler {
 		cmd = cmd.replace("timeLimit", task.getTimeLimit().toString());
 		cmd = cmd.replace("memoryLimit", task.getMemoryLimit().toString());
 		cmd = cmd.replace("tmpFile", path.getPath() + File.separator + "tmp.out");
+		log.info("开始运行用户代码，task:{}, \ncmd:{}", JsonUtil.toJsonString(task), cmd);
 		List<ResultCaseDTO> cases = new ArrayList<>();
 		for (int i = 0; ; i++) {
 			File inFile = new File(path.getPath() + File.separator + i + ".in");
@@ -98,7 +102,6 @@ public abstract class JudgeHandler {
 			if (!inFile.exists() || !outFile.exists()) {
 				break;
 			}
-			System.out.println(cmd.replace("inputFile", inFile.getPath()));
 			ExecutorUtil.ExecMessage msg = ExecutorUtil.exec(cmd.replace("inputFile", inFile.getPath()),
 				50000);
 			ResultCaseDTO itemCase = JSON.parseObject(msg.getStdout(), ResultCaseDTO.class);

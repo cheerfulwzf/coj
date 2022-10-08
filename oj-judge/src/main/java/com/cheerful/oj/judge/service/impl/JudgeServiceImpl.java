@@ -49,7 +49,7 @@ public class JudgeServiceImpl implements JudgeService {
 		JudgeResultDTO res = handler.judge(task);
 		res.setSubmissionId(task.getSubmissionId());
 		//发送消息表示判题完成
-		log.info("C语言判题完成：{}", res);
+		log.info("C语言判题完成，result:{}", res);
 		submissionService.updateDetails(submission, res);
 	}
 }
