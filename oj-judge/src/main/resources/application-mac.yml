@@ -17,3 +17,10 @@ spring:
       direct:
         #消息确认机制
         acknowledge-mode: manual
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      enable-auto-commit: false
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer

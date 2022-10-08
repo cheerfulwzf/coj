@@ -1,7 +1,7 @@
 package com.cheerful.oj.judge.factory.base;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
-import com.cheerful.oj.judge.util.FileUtil;
+import com.cheerful.oj.common.util.FileUtil;
 import java.io.File;
 import java.io.IOException;
 import org.springframework.beans.factory.annotation.Value;

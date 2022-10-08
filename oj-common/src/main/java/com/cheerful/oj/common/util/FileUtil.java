@@ -1,4 +1,4 @@
-package com.cheerful.oj.judge.util;
+package com.cheerful.oj.common.util;
 
 import java.io.File;
 import java.io.FileInputStream;

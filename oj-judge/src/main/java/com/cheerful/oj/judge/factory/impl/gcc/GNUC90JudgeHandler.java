@@ -1,7 +1,7 @@
 package com.cheerful.oj.judge.factory.impl.gcc;
 
 import com.cheerful.oj.judge.factory.base.CJudgeHandler;
-import com.cheerful.oj.judge.util.ExecutorUtil;
+import com.cheerful.oj.common.util.ExecutorUtil;
 import java.io.File;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

@@ -21,6 +21,15 @@ spring:
     host: localhost
     #    password: cc200155
     port: 6379
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      acks: 1
+      retries: 2
+      batch-size: 20
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
   session:
     store-type: redis
     timeout: 120 #过期120s，上线要修改，意味着用户登陆状态保持时间

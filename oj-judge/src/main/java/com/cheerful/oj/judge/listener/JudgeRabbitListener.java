@@ -19,11 +19,11 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 @RabbitListener(queues = "judge.wait.queue")
-public class JudgeWaitListener {
+public class JudgeRabbitListener {
 
 	private final JudgeService judgeService;
 
-	public JudgeWaitListener(JudgeService judgeService) {
+	public JudgeRabbitListener(JudgeService judgeService) {
 		this.judgeService = judgeService;
 	}
 
@@ -37,7 +37,7 @@ public class JudgeWaitListener {
 	 * @param channel 消息通道，ack通知
 	 */
 	@RabbitHandler
-	public void handleWaitJudge(JudgeTaskDTO task, Message message, Channel channel)
+	public void handleJudgeTask(JudgeTaskDTO task, Message message, Channel channel)
 		throws IOException {
 		try {
 			judgeService.judge(task);

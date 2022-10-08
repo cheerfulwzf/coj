@@ -41,11 +41,11 @@ public class JudgeServiceImpl implements JudgeService {
 		if (!submission.getResultCode().equals(JudgeStatusConstant.BLOCK.getCode())) {
 			return;
 		}
-		JudgeHandler handler = judgeFactory.createJudgeHandler(task.getOrderType());
-		CompletableFuture.runAsync(() -> doJudge(handler, task, submission), executor);
+		CompletableFuture.runAsync(() -> doJudge(task, submission), executor);
 	}
 
-	private void doJudge(JudgeHandler handler, JudgeTaskDTO task, Submission submission) {
+	private void doJudge(JudgeTaskDTO task, Submission submission) {
+		JudgeHandler handler = judgeFactory.createJudgeHandler(task.getOrderType());
 		JudgeResultDTO res = handler.judge(task);
 		res.setSubmissionId(task.getSubmissionId());
 		//发送消息表示判题完成

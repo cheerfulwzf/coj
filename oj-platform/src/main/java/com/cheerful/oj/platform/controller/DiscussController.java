@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.cheerful.oj.platform.entity.Discuss;
 import com.cheerful.oj.platform.service.DiscussService;
-import com.cheerful.oj.platform.util.IpUtil;
+import com.cheerful.oj.common.util.IpUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.Resource;

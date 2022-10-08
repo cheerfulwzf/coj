@@ -1,4 +1,4 @@
-package com.cheerful.oj.platform.util;
+package com.cheerful.oj.common.util;
 
 import javax.servlet.http.HttpServletRequest;
 

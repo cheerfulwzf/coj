@@ -5,6 +5,7 @@ import com.cheerful.oj.common.constant.HttpStatusConstant;
 import com.cheerful.oj.common.constant.JudgeStatusConstant;
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.common.vo.Result;
+import com.cheerful.oj.platform.core.mq.MQService;
 import com.cheerful.oj.platform.entity.Submission;
 import com.cheerful.oj.platform.entity.User;
 import com.cheerful.oj.platform.feign.QuestionFeignService;
@@ -12,13 +13,10 @@ import com.cheerful.oj.platform.interceptor.LoginUserInterceptor;
 import com.cheerful.oj.platform.pojo.dto.Question;
 import com.cheerful.oj.platform.pojo.vo.JudgeTaskVO;
 import com.cheerful.oj.platform.service.SubmissionService;
-import com.cheerful.oj.platform.util.UuidUtil;
+import com.cheerful.oj.common.util.UuidUtil;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
-import java.util.concurrent.ThreadPoolExecutor;
-import javax.annotation.Resource;
-import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
@@ -40,7 +38,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class JudgeCore {
 
 	@Autowired
-	private RabbitTemplate rabbitTemplate;
+	private MQService mqService;
 
 	@Autowired
 	private QuestionFeignService questionFeignService;
@@ -102,7 +100,7 @@ public class JudgeCore {
 		submissionService.save(submission);
 
 		taskDTO.setSubmissionId(submission.getId());
-		rabbitTemplate.convertAndSend("judge-event-exchange", "judge.wait", taskDTO);
+		mqService.amqpSend("judge-event-exchange", "judge.wait", taskDTO);
 		return Result.success(submission);
 	}
 
