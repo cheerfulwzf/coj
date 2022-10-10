@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "okcalls.h": "c",
+        "vector": "c"
+    },
+    "C_Cpp.dimInactiveRegions": false
+}

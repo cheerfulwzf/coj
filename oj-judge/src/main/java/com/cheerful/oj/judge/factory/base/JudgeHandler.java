@@ -91,7 +91,7 @@ public abstract class JudgeHandler {
 		cmd : command timeLimit memoryLimit inFile tmpFile
 		eg: /judge java@-classpath@/tmp/OnlineJudgeWorkspace/test@Main 1024 65535 /tmp/OnlineJudgeWorkspace/test/1.in /tmp/OnlineJudgeWorkspace/test/temp.out
 		*/
-		String cmd = "script process timeLimit memoryLimit inputFile tmpFile";
+		String cmd = "script process timeLimit memoryLimit inputFile tmpFile " + task.getOrderType();
 		cmd = cmd.replace("script", scriptPath)
 			.replace("process", getRunCommand(path).replace(" ", "@"))
 			.replace("timeLimit", task.getTimeLimit().toString())
