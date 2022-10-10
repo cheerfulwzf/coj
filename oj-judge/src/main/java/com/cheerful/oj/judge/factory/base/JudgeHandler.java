@@ -12,6 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 
@@ -86,27 +87,32 @@ public abstract class JudgeHandler {
 	 * @param path   判题源代码文件
 	 */
 	private void runSource(JudgeTaskDTO task, JudgeResultDTO result, File path) {
-		//cmd : command timeLimit memoryLimit inFile tmpFile
-		//eg: /judge java@-classpath@/tmp/OnlineJudgeWorkspace/test@Main 1024 65535 /tmp/OnlineJudgeWorkspace/test/1.in /tmp/OnlineJudgeWorkspace/test/temp.out
+		/*
+		cmd : command timeLimit memoryLimit inFile tmpFile
+		eg: /judge java@-classpath@/tmp/OnlineJudgeWorkspace/test@Main 1024 65535 /tmp/OnlineJudgeWorkspace/test/1.in /tmp/OnlineJudgeWorkspace/test/temp.out
+		*/
 		String cmd = "script process timeLimit memoryLimit inputFile tmpFile";
-		cmd = cmd.replace("script", scriptPath);
-		cmd = cmd.replace("process", getRunCommand(path).replace(" ", "@"));
-		cmd = cmd.replace("timeLimit", task.getTimeLimit().toString());
-		cmd = cmd.replace("memoryLimit", task.getMemoryLimit().toString());
-		cmd = cmd.replace("tmpFile", path.getPath() + File.separator + "tmp.out");
+		cmd = cmd.replace("script", scriptPath)
+			.replace("process", getRunCommand(path).replace(" ", "@"))
+			.replace("timeLimit", task.getTimeLimit().toString())
+			.replace("memoryLimit", task.getMemoryLimit().toString())
+			.replace("tmpFile", path.getPath() + File.separator + "tmp.out");
 		log.info("开始运行用户代码，task:{}, \ncmd:{}", JsonUtil.toJsonString(task), cmd);
 		List<ResultCaseDTO> cases = new ArrayList<>();
-		for (int i = 0; ; i++) {
+		int n = task.getInput().size();
+		for (int i = 0; i < n ; i++) {
 			File inFile = new File(path.getPath() + File.separator + i + ".in");
 			File outFile = new File(path.getPath() + File.separator + i + ".out");
 			if (!inFile.exists() || !outFile.exists()) {
+				ResultCaseDTO itemCase = ResultCaseDTO.ofError("服务器路径出错");
+				cases.add(itemCase);
 				break;
 			}
 			ExecutorUtil.ExecMessage msg = ExecutorUtil.exec(cmd.replace("inputFile", inFile.getPath()),
 				50000);
 			ResultCaseDTO itemCase = JSON.parseObject(msg.getStdout(), ResultCaseDTO.class);
 			if (itemCase == null) {
-				itemCase = new ResultCaseDTO(JudgeStatusConstant.SE.getCode(), -1, -1, null);
+				itemCase = ResultCaseDTO.ofError("判题脚本error");
 			}
 			if (itemCase.getStatus().equals(JudgeStatusConstant.AC.getCode())) {
 				String input = FileUtil.read(inFile);

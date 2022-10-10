@@ -1,5 +1,6 @@
 package com.cheerful.oj.common.dto;
 
+import com.cheerful.oj.common.constant.JudgeStatusConstant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,5 +36,9 @@ public class ResultCaseDTO {
 		this.timeUsed = timeUsed;
 		this.memoryUsed = memoryUsed;
 		this.errorMessage = errorMessage;
+	}
+
+	public static ResultCaseDTO ofError(String errorMessage) {
+		return new ResultCaseDTO(JudgeStatusConstant.SE.getCode(), -1, -1, errorMessage);
 	}
 }
