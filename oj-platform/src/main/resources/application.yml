@@ -2,7 +2,7 @@ spring:
   application:
     name: oj-platform
   profiles:
-    active: mac
+    active: win
   mail:
     host: smtp.qq.com
     username: cheerful0120@qq.com

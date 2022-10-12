@@ -26,7 +26,7 @@ public class JudgeKafkaListener {
 		this.judgeService = judgeService;
 	}
 
-	@KafkaListener
+	@KafkaListener(topics = "judge-wait", groupId = "1")
 	public void judgeTaskHandler(ConsumerRecord<String, String> msg, Acknowledgment ack) {
 		Optional<String> s = Optional.ofNullable(msg.value());
 		if (s.isPresent()) {
