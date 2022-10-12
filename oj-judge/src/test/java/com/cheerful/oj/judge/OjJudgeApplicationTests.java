@@ -13,6 +13,6 @@ class OjJudgeApplicationTests {
 
 	@Test
 	public void testSourceType() {
-		System.out.println(factory.createJudgeHandler(11));
+		System.out.println(factory.createJudgeHandler(0));
 	}
 }
