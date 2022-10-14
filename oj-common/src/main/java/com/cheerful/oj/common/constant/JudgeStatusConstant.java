@@ -17,8 +17,9 @@ public enum JudgeStatusConstant {
 	MLE(3, "Memory Limit Exceeded"),
 	WA(4, "Wrong Answer"),
 	RE(5, "Runtime Error"),
-	CE(6, "Compile Error"),
-	SE(7, "System Error");
+	OLE(6, "Output Limit Exceeded"),
+	CE(7, "Compile Error"),
+	SE(8, "System Error");
 
 	private final Integer code;
 	private final String msg;
