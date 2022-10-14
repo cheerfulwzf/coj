@@ -28,11 +28,13 @@ custom-cmd:
 
 ### 状态：正在开发中
 
-我的毕业设计，SICAU 2019级计算机在读
+SICAU 2019级计算机在读
 
 本项目是一个基于SpringBoot的微服务架构，其中使用了一些消息中间件、缓存、分布式服务的中间件来协助开发，后续会计划打包成docker镜像。
 
-运行环境：CentOS 7.6
+技术栈：MySQL、Redis、Kafka、SpringBoot、Nacos、SpringCloud
+
+运行环境：CentOS 7.6，jdk8，
 
 ### 用户层架构
 

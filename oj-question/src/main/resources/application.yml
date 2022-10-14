@@ -24,3 +24,9 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+
+logging:
+  file:
+    path: /app/logs
+    name: question.log
+  config: classpath:logback.xml
