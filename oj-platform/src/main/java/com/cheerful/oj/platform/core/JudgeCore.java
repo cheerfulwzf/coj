@@ -110,20 +110,6 @@ public class JudgeCore {
 	}
 
 	/**
-	 * 保证接口防抖
-	 *
-	 * @param userId 后端单元自测测试的时候使用
-	 * @return token
-	 */
-	@GetMapping("/getTokenTest")
-	private String getToken(@RequestParam Long userId,
-		@RequestParam Long qid) {
-		String token = UuidUtil.getId();
-		redisTemplate.opsForValue().set(CachePrefixConstant.TOKEN_PREFIX + qid + userId, token);
-		return token;
-	}
-
-	/**
 	 * 保证接口防抖 在redis植入一个`令牌`，前端传输来的任务中会包含这一项。 先去尝试`令牌`是否还存在，如不在了说明有人处理过了
 	 *
 	 * @param qid 题目id
@@ -143,11 +129,10 @@ public class JudgeCore {
 			return true;
 		}
 		String script = "if redis.call('get', KEYS[1]) == ARGV[1] then return redis.call('del', KEYS[1]) else return 0 end";
-		Long i = redisTemplate.execute(
+		return Objects.equals(redisTemplate.execute(
 			new DefaultRedisScript<>(script, Long.class),
 			Collections.singletonList(key),
 			token
-		);
-		return i == null || i == 0;
+		),0L);
 	}
 }
