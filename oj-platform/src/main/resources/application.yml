@@ -38,3 +38,8 @@ logging:
     path: /app/logs
     name: platform.log
   config: classpath:logback.xml
+
+gitee:
+  client_id: use_your
+  client_secret: user_you
+  call_back: http://192.168.44.1:88/api/platform/oauth2.0/gitee/success
