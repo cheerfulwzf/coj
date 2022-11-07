@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @AUTHOR: Wang Zhifu
@@ -28,5 +29,10 @@ public class ThreadPoolConfig {
 			Executors.defaultThreadFactory(),
 			new ThreadPoolExecutor.AbortPolicy()
 		);
+	}
+
+	@Bean
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
 	}
 }

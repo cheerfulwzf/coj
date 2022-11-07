@@ -1,4 +1,4 @@
-package com.cheerful.oj.judge.service;
+package com.cheerful.oj.judge.core.service;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
 

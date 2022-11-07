@@ -4,6 +4,8 @@ import com.cheerful.oj.common.constant.CachePrefixConstant;
 import com.cheerful.oj.common.constant.HttpStatusConstant;
 import com.cheerful.oj.common.constant.JudgeStatusConstant;
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
+import com.cheerful.oj.common.util.IpUtil;
+import com.cheerful.oj.common.util.UuidUtil;
 import com.cheerful.oj.common.vo.Result;
 import com.cheerful.oj.platform.core.mq.MQService;
 import com.cheerful.oj.platform.entity.Submission;
@@ -13,12 +15,11 @@ import com.cheerful.oj.platform.interceptor.LoginUserInterceptor;
 import com.cheerful.oj.platform.pojo.dto.Question;
 import com.cheerful.oj.platform.pojo.vo.JudgeTaskVO;
 import com.cheerful.oj.platform.service.SubmissionService;
-import com.cheerful.oj.common.util.UuidUtil;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Objects;
-import org.apache.kafka.common.protocol.types.Field.Str;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.core.script.DefaultRedisScript;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,7 +27,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -50,6 +50,12 @@ public class JudgeCore {
 	@Autowired
 	private StringRedisTemplate redisTemplate;
 
+	@Value("${server.port}")
+	private Integer port;
+
+	@Value("${server.servlet.context-path}")
+	private String serverPrefix;
+
 	/**
 	 * 对前端暴露接口，增加判题任务到消息队列，保证接口幂等
 	 *
@@ -72,10 +78,9 @@ public class JudgeCore {
 			return Result.error(HttpStatusConstant.QUESTION_NOT_FOUND, "题目id不存在");
 		}
 
-		JudgeTaskDTO taskDTO = new JudgeTaskDTO();
-		//调用远程接口封装判题任务信息
+		// 调用远程接口封装判题任务信息
 		Question question = result.getData();
-		buildTaskDTO(task, qid, taskDTO, question);
+		JudgeTaskDTO taskDTO = buildTaskDTO(task, qid, question);
 
 		//提交判题记录
 		Submission submission = Submission.builder()
@@ -95,18 +100,25 @@ public class JudgeCore {
 		return Result.success(submission);
 	}
 
-	private void buildTaskDTO(JudgeTaskVO task, Long qid, JudgeTaskDTO taskDTO, Question question) {
+	private JudgeTaskDTO buildTaskDTO(JudgeTaskVO task, Long qid, Question question) {
 		String inSamples = question.getInSamples();
 		String outSamples = question.getOutSamples();
 		String[] input = inSamples.split(":");
 		String[] output = outSamples.split(":");
-		taskDTO.setInput(Arrays.asList(input));
-		taskDTO.setOutput(Arrays.asList(output));
-		taskDTO.setSource(task.getSource());
-		taskDTO.setTimeLimit(question.getTimeLimit());
-		taskDTO.setMemoryLimit(question.getMemoryLimit());
-		taskDTO.setQid(qid);
-		taskDTO.setOrderType(task.getOrderType());
+		return JudgeTaskDTO.builder()
+			.input(Arrays.asList(input))
+			.output(Arrays.asList(output))
+			.source(task.getSource())
+			.orderType(task.getOrderType())
+			.timeLimit(question.getTimeLimit())
+			.memoryLimit(question.getMemoryLimit())
+			.qid(qid)
+			.callback(getCallbackUrl(IpUtil.getLocalHost()))
+			.build();
+	}
+
+	private String getCallbackUrl(String ip) {
+		return "http://" + ip + ":" + port + "/" + serverPrefix + "/submission";
 	}
 
 	/**
@@ -133,6 +145,6 @@ public class JudgeCore {
 			new DefaultRedisScript<>(script, Long.class),
 			Collections.singletonList(key),
 			token
-		),0L);
+		), 0L);
 	}
 }

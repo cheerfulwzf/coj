@@ -1,8 +1,8 @@
-package com.cheerful.oj.judge.listener;
+package com.cheerful.oj.judge.core.listener;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.common.util.JsonUtil;
-import com.cheerful.oj.judge.service.JudgeService;
+import com.cheerful.oj.judge.core.service.JudgeService;
 import java.util.Optional;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerRecord;

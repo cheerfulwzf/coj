@@ -1,4 +1,4 @@
-package com.cheerful.oj.judge.factory.base;
+package com.cheerful.oj.judge.core.factory.base;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.common.util.FileUtil;

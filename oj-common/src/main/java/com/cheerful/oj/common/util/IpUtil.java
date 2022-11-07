@@ -1,5 +1,11 @@
 package com.cheerful.oj.common.util;
 
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.Enumeration;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -29,6 +35,39 @@ public class IpUtil {
 			}
 		}
 		return request.getRemoteAddr();
+	}
+
+	public static String getLocalIp() {
+		Enumeration allNetInterfaces = null;
+		try {
+			allNetInterfaces = NetworkInterface.getNetworkInterfaces();
+		} catch (SocketException e) {
+			return "";
+		}
+		InetAddress ip = null;
+		while (allNetInterfaces.hasMoreElements()) {
+			NetworkInterface netInterface = (NetworkInterface) allNetInterfaces.nextElement();
+			Enumeration addresses = netInterface.getInetAddresses();
+			while (addresses.hasMoreElements()) {
+				ip = (InetAddress) addresses.nextElement();
+				if (ip != null && ip instanceof Inet4Address) {
+					return ip.getHostAddress();
+				}
+			}
+		}
+		return "";
+	}
+
+	public static boolean isLocalIp(String ip) throws UnknownHostException {
+		return InetAddress.getLocalHost().getHostAddress().equalsIgnoreCase(ip);
+	}
+
+	public static String getLocalHost() {
+		try {
+			return InetAddress.getLocalHost().getHostAddress();
+		} catch (UnknownHostException e) {
+			throw new RuntimeException("getLocalHost fail", e);
+		}
 	}
 
 }

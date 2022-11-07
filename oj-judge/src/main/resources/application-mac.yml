@@ -1,9 +1,4 @@
 spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: cc200155
-    url: jdbc:mysql://localhost:3306/oj_ums?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
   cloud:
     nacos:
       discovery:

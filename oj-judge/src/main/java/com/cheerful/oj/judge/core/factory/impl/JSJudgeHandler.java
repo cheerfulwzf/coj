@@ -1,7 +1,7 @@
-package com.cheerful.oj.judge.factory.impl;
+package com.cheerful.oj.judge.core.factory.impl;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
-import com.cheerful.oj.judge.factory.base.JudgeHandler;
+import com.cheerful.oj.judge.core.factory.base.JudgeHandler;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import com.cheerful.oj.common.util.FileUtil;
 import java.io.File;

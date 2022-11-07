@@ -49,12 +49,6 @@
       <groupId>org.springframework.kafka</groupId>
       <artifactId>spring-kafka</artifactId>
     </dependency>
-
-    <dependency>
-      <artifactId>mysql-connector-java</artifactId>
-      <groupId>mysql</groupId>
-      <scope>runtime</scope>
-    </dependency>
     <dependency>
       <artifactId>lombok</artifactId>
       <groupId>org.projectlombok</groupId>

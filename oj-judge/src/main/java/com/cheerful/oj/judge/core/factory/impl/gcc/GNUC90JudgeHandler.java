@@ -1,6 +1,6 @@
-package com.cheerful.oj.judge.factory.impl.gcc;
+package com.cheerful.oj.judge.core.factory.impl.gcc;
 
-import com.cheerful.oj.judge.factory.base.CJudgeHandler;
+import com.cheerful.oj.judge.core.factory.base.CJudgeHandler;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import java.io.File;
 import org.springframework.beans.factory.annotation.Value;

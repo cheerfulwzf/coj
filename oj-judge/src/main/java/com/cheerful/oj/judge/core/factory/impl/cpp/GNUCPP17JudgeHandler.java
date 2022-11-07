@@ -1,6 +1,6 @@
-package com.cheerful.oj.judge.factory.impl.gcc;
+package com.cheerful.oj.judge.core.factory.impl.cpp;
 
-import com.cheerful.oj.judge.factory.base.CJudgeHandler;
+import com.cheerful.oj.judge.core.factory.base.CPPJudgeHandler;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import java.io.File;
 import org.springframework.beans.factory.annotation.Value;
@@ -9,13 +9,13 @@ import org.springframework.stereotype.Service;
 /**
  * @AUTHOR: Wang Zhifu
  * @PROJECT_NAME: oj_system
- * @DATE: 2022/4/3 21:53
+ * @DATE: 2022/4/3 21:59
  * @DESCRIPTION:
  */
 @Service
-public class GNUC99JudgeHandler extends CJudgeHandler {
+public class GNUCPP17JudgeHandler extends CPPJudgeHandler {
 
-	@Value("${judge.GNUC99.compilerCmd}")
+	@Value("${judge.GNUCPP17.compilerCmd}")
 	private String compilerWord;
 
 	@Override

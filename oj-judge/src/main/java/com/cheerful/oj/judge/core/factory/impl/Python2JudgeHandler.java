@@ -1,7 +1,7 @@
-package com.cheerful.oj.judge.factory.impl;
+package com.cheerful.oj.judge.core.factory.impl;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
-import com.cheerful.oj.judge.factory.base.JudgeHandler;
+import com.cheerful.oj.judge.core.factory.base.JudgeHandler;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import com.cheerful.oj.common.util.FileUtil;
 import java.io.File;
@@ -12,22 +12,21 @@ import org.springframework.stereotype.Service;
 /**
  * @AUTHOR: Wang Zhifu
  * @PROJECT_NAME: oj_system
- * @DATE: 2022/4/3 22:00
+ * @DATE: 2022/4/3 22:07
  * @DESCRIPTION:
  */
 @Service
-public class GoJudgeHandler extends JudgeHandler {
+public class Python2JudgeHandler extends JudgeHandler {
 
-	@Value("${judge.Go.compilerCmd}")
+	@Value("${judge.Python2word}")
 	private String compilerWord;
 
-	@Value("${judge.Go.runCmd}")
+	@Value("${judge.Python2run}")
 	private String runWord;
-
 
 	@Override
 	protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-		File src = new File(path, "main.go");
+		File src = new File(path, "main.py");
 		FileUtil.write(task.getSource(), src);
 	}
 

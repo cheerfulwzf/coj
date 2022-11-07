@@ -1,7 +1,7 @@
-package com.cheerful.oj.judge.listener;
+package com.cheerful.oj.judge.core.listener;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
-import com.cheerful.oj.judge.service.JudgeService;
+import com.cheerful.oj.judge.core.service.JudgeService;
 import com.rabbitmq.client.Channel;
 import java.io.IOException;
 import lombok.extern.slf4j.Slf4j;
