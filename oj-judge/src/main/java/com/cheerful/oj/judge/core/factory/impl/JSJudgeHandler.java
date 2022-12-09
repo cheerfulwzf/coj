@@ -39,4 +39,14 @@ public class JSJudgeHandler extends JudgeHandler {
 	protected String getRunCommand(File path) {
 		return runWord.replace("PATH", path.getPath());
 	}
+
+	@Override
+	public String getConfigureCompilerCmd() {
+		return null;
+	}
+
+	@Override
+	public String getConfigureRunCmd() {
+		return runWord;
+	}
 }

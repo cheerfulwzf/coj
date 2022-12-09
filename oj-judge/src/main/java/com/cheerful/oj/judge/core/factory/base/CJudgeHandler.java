@@ -27,4 +27,10 @@ public abstract class CJudgeHandler extends JudgeHandler {
 	protected String getRunCommand(File path) {
 		return runCmd.replace("PATH", path.getPath());
 	}
+
+	@Override
+	public String getConfigureRunCmd() {
+		return runCmd;
+	}
+
 }

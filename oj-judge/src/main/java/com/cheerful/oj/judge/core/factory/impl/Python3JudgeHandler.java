@@ -40,4 +40,15 @@ public class Python3JudgeHandler extends JudgeHandler {
 	protected String getRunCommand(File path) {
 		return runWord.replace("PATH", path.getPath());
 	}
+
+	@Override
+	public String getConfigureCompilerCmd() {
+		return compilerWord;
+	}
+
+	@Override
+	public String getConfigureRunCmd() {
+		return runWord;
+	}
+
 }

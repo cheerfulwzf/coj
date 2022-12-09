@@ -23,4 +23,9 @@ public class GNUC99JudgeHandler extends CJudgeHandler {
 		String cmd = compilerWord.replace("PATH", path.getPath());
 		return ExecutorUtil.exec(cmd, 5000);
 	}
+
+	@Override
+	public String getConfigureCompilerCmd() {
+		return compilerWord;
+	}
 }

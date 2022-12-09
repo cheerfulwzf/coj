@@ -42,4 +42,14 @@ public class JavaJudgeHandler extends JudgeHandler {
 		//java -classpath /tmp/OnlineJudgeWorkspace/test Main
 		return runCmd.replace("PATH", path.getPath());
 	}
+
+	@Override
+	public String getConfigureCompilerCmd() {
+		return compilerCmd;
+	}
+
+	@Override
+	public String getConfigureRunCmd() {
+		return runCmd;
+	}
 }

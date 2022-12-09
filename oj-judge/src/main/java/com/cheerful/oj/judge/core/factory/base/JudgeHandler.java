@@ -12,9 +12,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
@@ -229,4 +227,8 @@ public abstract class JudgeHandler {
 	 * @return eg:java -classpath PATH Main
 	 */
 	protected abstract String getRunCommand(File path);
+
+	public abstract String getConfigureCompilerCmd();
+
+	public abstract String getConfigureRunCmd();
 }

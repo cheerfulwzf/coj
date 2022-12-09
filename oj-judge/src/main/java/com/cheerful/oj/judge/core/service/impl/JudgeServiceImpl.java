@@ -5,7 +5,7 @@ import com.cheerful.oj.common.constant.JudgeStatusConstant;
 import com.cheerful.oj.common.dto.JudgeResultDTO;
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.common.dto.ResultCaseDTO;
-import com.cheerful.oj.judge.core.factory.JudgeFactory;
+import com.cheerful.oj.judge.core.service.JudgeFactory;
 import com.cheerful.oj.judge.core.factory.base.JudgeHandler;
 import com.cheerful.oj.judge.core.service.JudgeService;
 import com.cheerful.oj.judge.entity.Submission;
@@ -71,7 +71,10 @@ public class JudgeServiceImpl implements JudgeService {
 			submission = afterJudgeBuild(submissionId, JudgeStatusConstant.RE.getCode(), res.getGlobalMsg(), timeUsed,
 				memUsed);
 		}
-		restTemplate.put(callback, submission);
+		if (StringUtils.isEmpty(callback)) {
+			return;
+		}
+		restTemplate.postForEntity(callback, submission, Void.class);
 	}
 
 	private Submission afterJudgeBuild(Long submissionId,
