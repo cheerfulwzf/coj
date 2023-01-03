@@ -1,7 +1,7 @@
-package com.cheerful.oj.judge.factory.impl;
+package com.cheerful.oj.judge.core.factory.impl;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
-import com.cheerful.oj.judge.factory.base.JudgeHandler;
+import com.cheerful.oj.judge.core.factory.base.JudgeHandler;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import com.cheerful.oj.common.util.FileUtil;
 import java.io.File;
@@ -12,21 +12,22 @@ import org.springframework.stereotype.Service;
 /**
  * @AUTHOR: Wang Zhifu
  * @PROJECT_NAME: oj_system
- * @DATE: 2022/4/3 22:07
+ * @DATE: 2022/4/3 22:00
  * @DESCRIPTION:
  */
 @Service
-public class Python2JudgeHandler extends JudgeHandler {
+public class GoJudgeHandler extends JudgeHandler {
 
-	@Value("${judge.Python2word}")
+	@Value("${judge.Go.compilerCmd}")
 	private String compilerWord;
 
-	@Value("${judge.Python2run}")
+	@Value("${judge.Go.runCmd}")
 	private String runWord;
+
 
 	@Override
 	protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-		File src = new File(path, "main.py");
+		File src = new File(path, "main.go");
 		FileUtil.write(task.getSource(), src);
 	}
 
@@ -39,5 +40,15 @@ public class Python2JudgeHandler extends JudgeHandler {
 	@Override
 	protected String getRunCommand(File path) {
 		return runWord.replace("PATH", path.getPath());
+	}
+
+	@Override
+	public String getConfigureCompilerCmd() {
+		return compilerWord;
+	}
+
+	@Override
+	public String getConfigureRunCmd() {
+		return runWord;
 	}
 }

@@ -1,42 +1,54 @@
-package com.cheerful.oj.judge.factory.impl;
+package com.cheerful.oj.judge.core.factory.impl;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
-import com.cheerful.oj.judge.factory.base.JudgeHandler;
+import com.cheerful.oj.judge.core.factory.base.JudgeHandler;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import com.cheerful.oj.common.util.FileUtil;
 import java.io.File;
 import java.io.IOException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
  * @AUTHOR: Wang Zhifu
  * @PROJECT_NAME: oj_system
- * @DATE: 2022/4/3 22:02
+ * @DATE: 2022/4/3 22:09
  * @DESCRIPTION:
  */
-@Slf4j
 @Service
-public class JSJudgeHandler extends JudgeHandler {
+public class Python3JudgeHandler extends JudgeHandler {
 
-	@Value("${judge.js.runCmd}")
+	@Value("${judge.Python3word}")
+	private String compilerWord;
+
+	@Value("${judge.Python3run}")
 	private String runWord;
 
 	@Override
 	protected void createSrc(JudgeTaskDTO task, File path) throws IOException {
-		File src = new File(path, "main.js");
+		File src = new File(path, "main.py");
 		FileUtil.write(task.getSource(), src);
 	}
 
 	@Override
 	protected ExecutorUtil.ExecMessage handlerCompiler(File path) {
-		log.info("JavaScript no Compiler");
-		return null;
+		String cmd = compilerWord.replace("PATH", path.getPath());
+		return ExecutorUtil.exec(cmd, 2000);
 	}
 
 	@Override
 	protected String getRunCommand(File path) {
 		return runWord.replace("PATH", path.getPath());
 	}
+
+	@Override
+	public String getConfigureCompilerCmd() {
+		return compilerWord;
+	}
+
+	@Override
+	public String getConfigureRunCmd() {
+		return runWord;
+	}
+
 }

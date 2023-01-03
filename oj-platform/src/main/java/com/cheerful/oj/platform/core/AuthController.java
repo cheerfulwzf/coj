@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,22 +28,31 @@ import org.springframework.web.client.RestTemplate;
  * @AUTHOR: Wang Zhifu
  * @PROJECT_NAME: oj_system
  * @DATE: 2022/3/30 21:39
- * @DESCRIPTION:
+ * @DESCRIPTION: <a href="https://gitee.com/api/v5/oauth_doc#/">gitee openAPI文档</a>
  */
 @RestController
 public class AuthController {
 
 	@Autowired
-	StringRedisTemplate redisTemplate;
+	private StringRedisTemplate redisTemplate;
 
 	@Autowired
-	MailUtil mailUtil;
+	private MailUtil mailUtil;
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 
 	@Autowired
-	RestTemplate restTemplate;
+	private RestTemplate restTemplate;
+
+	@Value("${gitee.client_id}")
+	private String clientId;
+
+	@Value("${gitee.client_secret}")
+	private String clientSecret;
+
+	@Value("${gitee.call_back}")
+	private String callback;
 
 	/**
 	 * 邮箱验证码 防抖
@@ -115,11 +125,11 @@ public class AuthController {
 	public Result<String> giteeLogin(@RequestParam String code, HttpSession session) {
 		//body信息
 		HashMap<String, String> map = new HashMap<>();
-		map.put("client_id", "43906c86280b1affa184290c9f27c6a86a1fb2f39ca100f91c715b31d25b6a2d");
+		map.put("client_id", clientId);
 		map.put("grant_type", "authorization_code");
 		map.put("code", code);
-		map.put("client_secret", "77b4770d53dcc9adfd6b80ca6603706be3b3c3be48615a46f7403e98b239ec78");
-		map.put("redirect_uri", "http://192.168.44.1:88/api/platform/oauth2.0/gitee/success");
+		map.put("client_secret", clientSecret);
+		map.put("redirect_uri", callback);
 		//gitee授权
 		SocialUser giteeUser = restTemplate.postForObject("https://gitee.com/oauth/token", map,
 			SocialUser.class);

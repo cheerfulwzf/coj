@@ -1,6 +1,7 @@
 package com.cheerful.oj.platform.pojo.vo;
 
 import com.cheerful.oj.platform.exception.Verify;
+import lombok.Builder;
 import lombok.Data;
 
 /**

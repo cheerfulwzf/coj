@@ -1,6 +1,8 @@
 package com.cheerful.oj.common.dto;
 
+import java.util.Arrays;
 import java.util.List;
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -10,6 +12,7 @@ import lombok.Data;
  * @DESCRIPTION: 用户提交后，封装提交后的数据的实体类
  */
 @Data
+@Builder
 public class JudgeTaskDTO {
 
 	/**
@@ -33,4 +36,7 @@ public class JudgeTaskDTO {
 	private Integer orderType;
 
 	private String source;
+
+	private String callback;
+
 }

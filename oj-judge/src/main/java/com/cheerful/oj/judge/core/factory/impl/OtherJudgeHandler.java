@@ -1,9 +1,9 @@
-package com.cheerful.oj.judge.factory.impl;
+package com.cheerful.oj.judge.core.factory.impl;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
 import com.cheerful.oj.common.exception.ParamException;
 import com.cheerful.oj.judge.exception.OrderTypeNotFoundException;
-import com.cheerful.oj.judge.factory.base.JudgeHandler;
+import com.cheerful.oj.judge.core.factory.base.JudgeHandler;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import com.cheerful.oj.common.util.ExecutorUtil.ExecMessage;
 import com.cheerful.oj.common.util.FileUtil;
@@ -74,6 +74,16 @@ public class OtherJudgeHandler extends JudgeHandler {
 		return runCmd.replace("PATH", path.getPath());
 	}
 
+	@Override
+	public String getConfigureCompilerCmd() {
+		return compilerCmd;
+	}
+
+	@Override
+	public String getConfigureRunCmd() {
+		return runCmd;
+	}
+
 	public void setMap(Map<String, List<String>> map) {
 		this.map = map;
 	}
@@ -89,4 +99,5 @@ public class OtherJudgeHandler extends JudgeHandler {
 	public Map<String, List<String>> getMap() {
 		return map;
 	}
+
 }

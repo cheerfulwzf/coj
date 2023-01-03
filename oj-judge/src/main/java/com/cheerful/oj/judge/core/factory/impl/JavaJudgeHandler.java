@@ -1,7 +1,7 @@
-package com.cheerful.oj.judge.factory.impl;
+package com.cheerful.oj.judge.core.factory.impl;
 
 import com.cheerful.oj.common.dto.JudgeTaskDTO;
-import com.cheerful.oj.judge.factory.base.JudgeHandler;
+import com.cheerful.oj.judge.core.factory.base.JudgeHandler;
 import com.cheerful.oj.common.util.ExecutorUtil;
 import com.cheerful.oj.common.util.FileUtil;
 import java.io.File;
@@ -41,5 +41,15 @@ public class JavaJudgeHandler extends JudgeHandler {
 	protected String getRunCommand(File path) {
 		//java -classpath /tmp/OnlineJudgeWorkspace/test Main
 		return runCmd.replace("PATH", path.getPath());
+	}
+
+	@Override
+	public String getConfigureCompilerCmd() {
+		return compilerCmd;
+	}
+
+	@Override
+	public String getConfigureRunCmd() {
+		return runCmd;
 	}
 }
